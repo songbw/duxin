@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiannei.duxin.dao.AdminMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Admin">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="mobile" property="mobile" />
+        <result column="email" property="email" />
+        <result column="role_id" property="roleId" />
+        <result column="parent_id" property="parentId" />
+        <result column="parent_ids" property="parentIds" />
+        <result column="locked" property="locked" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <insert id="add" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id">
+        insert into admin(
+                name
+                  ,
+                username
+                  ,
+                password
+                  ,
+                mobile
+                  ,
+                email
+                  ,
+                role_id
+                  ,
+                parent_id
+                  ,
+                parent_ids
+                  ,
+                locked
+                  ,
+                created_at
+                  ,
+                updated_at
+            ) values(
+                #{name}
+                   ,
+                #{username}
+                   ,
+                #{password}
+                   ,
+                #{mobile}
+                   ,
+                #{email}
+                   ,
+                #{roleId}
+                   ,
+                #{parentId}
+                   ,
+                #{parentIds}
+                   ,
+                #{locked}
+                   ,
+                #{createdAt}
+                   ,
+                #{updatedAt}
+            )
+    </insert>
+    <update id="update" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id">
+        update admin set
+                name = #{name}
+                       ,
+                username = #{username}
+                       ,
+                password = #{password}
+                       ,
+                mobile = #{mobile}
+                       ,
+                email = #{email}
+                       ,
+                role_id = #{roleId}
+                       ,
+                parent_id = #{parentId}
+                       ,
+                parent_ids = #{parentIds}
+                       ,
+                locked = #{locked}
+                       ,
+                created_at = #{createdAt}
+                       ,
+                updated_at = #{updatedAt}
+          where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from admin where id = #{id}
+    </delete>
+    <select id="selectById" resultMap="BaseResultMap">
+        select * from admin where id = #{id}
+    </select>
+    <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
+        select * from admin where 1=1
+                name = #{name}
+                <if test="name != null and name != '' ">
+                    AND name LIKE #{name}
+                </if>
+                username = #{username}
+                <if test="username != null and username != '' ">
+                    AND username LIKE #{username}
+                </if>
+                password = #{password}
+                <if test="password != null and password != '' ">
+                    AND password LIKE #{password}
+                </if>
+                mobile = #{mobile}
+                <if test="mobile != null and mobile != '' ">
+                    AND mobile LIKE #{mobile}
+                </if>
+                email = #{email}
+                <if test="email != null and email != '' ">
+                    AND email LIKE #{email}
+                </if>
+                role_id = #{roleId}
+                <if test="roleId != null and roleId != '' ">
+                    AND role_id LIKE #{roleId}
+                </if>
+                parent_id = #{parentId}
+                <if test="parentId != null and parentId != '' ">
+                    AND parent_id LIKE #{parentId}
+                </if>
+                parent_ids = #{parentIds}
+                <if test="parentIds != null and parentIds != '' ">
+                    AND parent_ids LIKE #{parentIds}
+                </if>
+                locked = #{locked}
+                <if test="locked != null and locked != '' ">
+                    AND locked LIKE #{locked}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+        limit #{pageNo}, #{pageSize}
+    </select>
+    <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
+        select count(id) from admin where 1=1
+                name = #{name}
+                <if test="name != null and name != '' ">
+                    AND name LIKE #{name}
+                </if>
+                username = #{username}
+                <if test="username != null and username != '' ">
+                    AND username LIKE #{username}
+                </if>
+                password = #{password}
+                <if test="password != null and password != '' ">
+                    AND password LIKE #{password}
+                </if>
+                mobile = #{mobile}
+                <if test="mobile != null and mobile != '' ">
+                    AND mobile LIKE #{mobile}
+                </if>
+                email = #{email}
+                <if test="email != null and email != '' ">
+                    AND email LIKE #{email}
+                </if>
+                role_id = #{roleId}
+                <if test="roleId != null and roleId != '' ">
+                    AND role_id LIKE #{roleId}
+                </if>
+                parent_id = #{parentId}
+                <if test="parentId != null and parentId != '' ">
+                    AND parent_id LIKE #{parentId}
+                </if>
+                parent_ids = #{parentIds}
+                <if test="parentIds != null and parentIds != '' ">
+                    AND parent_ids LIKE #{parentIds}
+                </if>
+                locked = #{locked}
+                <if test="locked != null and locked != '' ">
+                    AND locked LIKE #{locked}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+    </select>
+
+</mapper>

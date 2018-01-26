@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiannei.duxin.dao.CustomerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Customer">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="gender" property="gender" />
+        <result column="birth_date" property="birthDate" />
+        <result column="mobile" property="mobile" />
+        <result column="telephone" property="telephone" />
+        <result column="password" property="password" />
+        <result column="address" property="address" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <insert id="add" parameterType="com.jiannei.duxin.entity.Customer" keyProperty="id">
+        insert into customer(
+                name
+                  ,
+                gender
+                  ,
+                birth_date
+                  ,
+                mobile
+                  ,
+                telephone
+                  ,
+                password
+                  ,
+                address
+                  ,
+                created_at
+                  ,
+                updated_at
+            ) values(
+                #{name}
+                   ,
+                #{gender}
+                   ,
+                #{birthDate}
+                   ,
+                #{mobile}
+                   ,
+                #{telephone}
+                   ,
+                #{password}
+                   ,
+                #{address}
+                   ,
+                #{createdAt}
+                   ,
+                #{updatedAt}
+            )
+    </insert>
+    <update id="update" parameterType="com.jiannei.duxin.entity.Customer" keyProperty="id">
+        update customer set
+                name = #{name}
+                       ,
+                gender = #{gender}
+                       ,
+                birth_date = #{birthDate}
+                       ,
+                mobile = #{mobile}
+                       ,
+                telephone = #{telephone}
+                       ,
+                password = #{password}
+                       ,
+                address = #{address}
+                       ,
+                created_at = #{createdAt}
+                       ,
+                updated_at = #{updatedAt}
+          where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from customer where id = #{id}
+    </delete>
+    <select id="selectById" resultMap="BaseResultMap">
+        select * from customer where id = #{id}
+    </select>
+    <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
+        select * from customer where 1=1
+                name = #{name}
+                <if test="name != null and name != '' ">
+                    AND name LIKE #{name}
+                </if>
+                gender = #{gender}
+                <if test="gender != null and gender != '' ">
+                    AND gender LIKE #{gender}
+                </if>
+                birth_date = #{birthDate}
+                <if test="birthDate != null and birthDate != '' ">
+                    AND birth_date LIKE #{birthDate}
+                </if>
+                mobile = #{mobile}
+                <if test="mobile != null and mobile != '' ">
+                    AND mobile LIKE #{mobile}
+                </if>
+                telephone = #{telephone}
+                <if test="telephone != null and telephone != '' ">
+                    AND telephone LIKE #{telephone}
+                </if>
+                password = #{password}
+                <if test="password != null and password != '' ">
+                    AND password LIKE #{password}
+                </if>
+                address = #{address}
+                <if test="address != null and address != '' ">
+                    AND address LIKE #{address}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+        limit #{pageNo}, #{pageSize}
+    </select>
+    <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
+        select count(id) from customer where 1=1
+                name = #{name}
+                <if test="name != null and name != '' ">
+                    AND name LIKE #{name}
+                </if>
+                gender = #{gender}
+                <if test="gender != null and gender != '' ">
+                    AND gender LIKE #{gender}
+                </if>
+                birth_date = #{birthDate}
+                <if test="birthDate != null and birthDate != '' ">
+                    AND birth_date LIKE #{birthDate}
+                </if>
+                mobile = #{mobile}
+                <if test="mobile != null and mobile != '' ">
+                    AND mobile LIKE #{mobile}
+                </if>
+                telephone = #{telephone}
+                <if test="telephone != null and telephone != '' ">
+                    AND telephone LIKE #{telephone}
+                </if>
+                password = #{password}
+                <if test="password != null and password != '' ">
+                    AND password LIKE #{password}
+                </if>
+                address = #{address}
+                <if test="address != null and address != '' ">
+                    AND address LIKE #{address}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+    </select>
+
+</mapper>

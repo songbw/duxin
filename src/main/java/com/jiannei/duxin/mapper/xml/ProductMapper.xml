@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiannei.duxin.dao.ProductMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Product">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="specification" property="specification" />
+        <result column="hardness" property="hardness" />
+        <result column="texture" property="texture" />
+        <result column="color" property="color" />
+        <result column="desc" property="desc" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="creator" property="creator" />
+        <result column="price" property="price" />
+    </resultMap>
+
+    <insert id="add" parameterType="com.jiannei.duxin.entity.Product" keyProperty="id">
+        insert into product(
+                name
+                  ,
+                specification
+                  ,
+                hardness
+                  ,
+                texture
+                  ,
+                color
+                  ,
+                desc
+                  ,
+                created_at
+                  ,
+                updated_at
+                  ,
+                creator
+                  ,
+                price
+            ) values(
+                #{name}
+                   ,
+                #{specification}
+                   ,
+                #{hardness}
+                   ,
+                #{texture}
+                   ,
+                #{color}
+                   ,
+                #{desc}
+                   ,
+                #{createdAt}
+                   ,
+                #{updatedAt}
+                   ,
+                #{creator}
+                   ,
+                #{price}
+            )
+    </insert>
+    <update id="update" parameterType="com.jiannei.duxin.entity.Product" keyProperty="id">
+        update product set
+                name = #{name}
+                       ,
+                specification = #{specification}
+                       ,
+                hardness = #{hardness}
+                       ,
+                texture = #{texture}
+                       ,
+                color = #{color}
+                       ,
+                desc = #{desc}
+                       ,
+                created_at = #{createdAt}
+                       ,
+                updated_at = #{updatedAt}
+                       ,
+                creator = #{creator}
+                       ,
+                price = #{price}
+          where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from product where id = #{id}
+    </delete>
+    <select id="selectById" resultMap="BaseResultMap">
+        select * from product where id = #{id}
+    </select>
+    <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
+        select * from product where 1=1
+                name = #{name}
+                <if test="name != null and name != '' ">
+                    AND name LIKE #{name}
+                </if>
+                specification = #{specification}
+                <if test="specification != null and specification != '' ">
+                    AND specification LIKE #{specification}
+                </if>
+                hardness = #{hardness}
+                <if test="hardness != null and hardness != '' ">
+                    AND hardness LIKE #{hardness}
+                </if>
+                texture = #{texture}
+                <if test="texture != null and texture != '' ">
+                    AND texture LIKE #{texture}
+                </if>
+                color = #{color}
+                <if test="color != null and color != '' ">
+                    AND color LIKE #{color}
+                </if>
+                desc = #{desc}
+                <if test="desc != null and desc != '' ">
+                    AND desc LIKE #{desc}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+                creator = #{creator}
+                <if test="creator != null and creator != '' ">
+                    AND creator LIKE #{creator}
+                </if>
+                price = #{price}
+                <if test="price != null and price != '' ">
+                    AND price LIKE #{price}
+                </if>
+        limit #{pageNo}, #{pageSize}
+    </select>
+    <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
+        select count(id) from product where 1=1
+                name = #{name}
+                <if test="name != null and name != '' ">
+                    AND name LIKE #{name}
+                </if>
+                specification = #{specification}
+                <if test="specification != null and specification != '' ">
+                    AND specification LIKE #{specification}
+                </if>
+                hardness = #{hardness}
+                <if test="hardness != null and hardness != '' ">
+                    AND hardness LIKE #{hardness}
+                </if>
+                texture = #{texture}
+                <if test="texture != null and texture != '' ">
+                    AND texture LIKE #{texture}
+                </if>
+                color = #{color}
+                <if test="color != null and color != '' ">
+                    AND color LIKE #{color}
+                </if>
+                desc = #{desc}
+                <if test="desc != null and desc != '' ">
+                    AND desc LIKE #{desc}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+                creator = #{creator}
+                <if test="creator != null and creator != '' ">
+                    AND creator LIKE #{creator}
+                </if>
+                price = #{price}
+                <if test="price != null and price != '' ">
+                    AND price LIKE #{price}
+                </if>
+    </select>
+
+</mapper>

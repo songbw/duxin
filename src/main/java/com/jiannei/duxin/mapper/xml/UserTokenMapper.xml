@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiannei.duxin.dao.UserTokenMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.UserToken">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="user_type" property="userType" />
+        <result column="access_token" property="accessToken" />
+        <result column="refresh_token" property="refreshToken" />
+        <result column="expired" property="expired" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <insert id="add" parameterType="com.jiannei.duxin.entity.UserToken" keyProperty="id">
+        insert into user_token(
+                user_id
+                  ,
+                user_type
+                  ,
+                access_token
+                  ,
+                refresh_token
+                  ,
+                expired
+                  ,
+                created_at
+                  ,
+                updated_at
+            ) values(
+                #{userId}
+                   ,
+                #{userType}
+                   ,
+                #{accessToken}
+                   ,
+                #{refreshToken}
+                   ,
+                #{expired}
+                   ,
+                #{createdAt}
+                   ,
+                #{updatedAt}
+            )
+    </insert>
+    <update id="update" parameterType="com.jiannei.duxin.entity.UserToken" keyProperty="id">
+        update user_token set
+                user_id = #{userId}
+                       ,
+                user_type = #{userType}
+                       ,
+                access_token = #{accessToken}
+                       ,
+                refresh_token = #{refreshToken}
+                       ,
+                expired = #{expired}
+                       ,
+                created_at = #{createdAt}
+                       ,
+                updated_at = #{updatedAt}
+          where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from user_token where id = #{id}
+    </delete>
+    <select id="selectById" resultMap="BaseResultMap">
+        select * from user_token where id = #{id}
+    </select>
+    <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
+        select * from user_token where 1=1
+                user_id = #{userId}
+                <if test="userId != null and userId != '' ">
+                    AND user_id LIKE #{userId}
+                </if>
+                user_type = #{userType}
+                <if test="userType != null and userType != '' ">
+                    AND user_type LIKE #{userType}
+                </if>
+                access_token = #{accessToken}
+                <if test="accessToken != null and accessToken != '' ">
+                    AND access_token LIKE #{accessToken}
+                </if>
+                refresh_token = #{refreshToken}
+                <if test="refreshToken != null and refreshToken != '' ">
+                    AND refresh_token LIKE #{refreshToken}
+                </if>
+                expired = #{expired}
+                <if test="expired != null and expired != '' ">
+                    AND expired LIKE #{expired}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+        limit #{pageNo}, #{pageSize}
+    </select>
+    <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
+        select count(id) from user_token where 1=1
+                user_id = #{userId}
+                <if test="userId != null and userId != '' ">
+                    AND user_id LIKE #{userId}
+                </if>
+                user_type = #{userType}
+                <if test="userType != null and userType != '' ">
+                    AND user_type LIKE #{userType}
+                </if>
+                access_token = #{accessToken}
+                <if test="accessToken != null and accessToken != '' ">
+                    AND access_token LIKE #{accessToken}
+                </if>
+                refresh_token = #{refreshToken}
+                <if test="refreshToken != null and refreshToken != '' ">
+                    AND refresh_token LIKE #{refreshToken}
+                </if>
+                expired = #{expired}
+                <if test="expired != null and expired != '' ">
+                    AND expired LIKE #{expired}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+    </select>
+
+</mapper>

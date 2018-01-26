@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiannei.duxin.dao.ProductBasketMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.ProductBasket">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="product_order" property="productOrder" />
+        <result column="basket_num" property="basketNum" />
+        <result column="sort_user" property="sortUser" />
+        <result column="area" property="area" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <insert id="add" parameterType="com.jiannei.duxin.entity.ProductBasket" keyProperty="id">
+        insert into product_basket(
+                order_id
+                  ,
+                product_order
+                  ,
+                basket_num
+                  ,
+                sort_user
+                  ,
+                area
+                  ,
+                created_at
+                  ,
+                updated_at
+            ) values(
+                #{orderId}
+                   ,
+                #{productOrder}
+                   ,
+                #{basketNum}
+                   ,
+                #{sortUser}
+                   ,
+                #{area}
+                   ,
+                #{createdAt}
+                   ,
+                #{updatedAt}
+            )
+    </insert>
+    <update id="update" parameterType="com.jiannei.duxin.entity.ProductBasket" keyProperty="id">
+        update product_basket set
+                order_id = #{orderId}
+                       ,
+                product_order = #{productOrder}
+                       ,
+                basket_num = #{basketNum}
+                       ,
+                sort_user = #{sortUser}
+                       ,
+                area = #{area}
+                       ,
+                created_at = #{createdAt}
+                       ,
+                updated_at = #{updatedAt}
+          where id = #{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from product_basket where id = #{id}
+    </delete>
+    <select id="selectById" resultMap="BaseResultMap">
+        select * from product_basket where id = #{id}
+    </select>
+    <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
+        select * from product_basket where 1=1
+                order_id = #{orderId}
+                <if test="orderId != null and orderId != '' ">
+                    AND order_id LIKE #{orderId}
+                </if>
+                product_order = #{productOrder}
+                <if test="productOrder != null and productOrder != '' ">
+                    AND product_order LIKE #{productOrder}
+                </if>
+                basket_num = #{basketNum}
+                <if test="basketNum != null and basketNum != '' ">
+                    AND basket_num LIKE #{basketNum}
+                </if>
+                sort_user = #{sortUser}
+                <if test="sortUser != null and sortUser != '' ">
+                    AND sort_user LIKE #{sortUser}
+                </if>
+                area = #{area}
+                <if test="area != null and area != '' ">
+                    AND area LIKE #{area}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+        limit #{pageNo}, #{pageSize}
+    </select>
+    <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
+        select count(id) from product_basket where 1=1
+                order_id = #{orderId}
+                <if test="orderId != null and orderId != '' ">
+                    AND order_id LIKE #{orderId}
+                </if>
+                product_order = #{productOrder}
+                <if test="productOrder != null and productOrder != '' ">
+                    AND product_order LIKE #{productOrder}
+                </if>
+                basket_num = #{basketNum}
+                <if test="basketNum != null and basketNum != '' ">
+                    AND basket_num LIKE #{basketNum}
+                </if>
+                sort_user = #{sortUser}
+                <if test="sortUser != null and sortUser != '' ">
+                    AND sort_user LIKE #{sortUser}
+                </if>
+                area = #{area}
+                <if test="area != null and area != '' ">
+                    AND area LIKE #{area}
+                </if>
+                created_at = #{createdAt}
+                <if test="createdAt != null and createdAt != '' ">
+                    AND created_at LIKE #{createdAt}
+                </if>
+                updated_at = #{updatedAt}
+                <if test="updatedAt != null and updatedAt != '' ">
+                    AND updated_at LIKE #{updatedAt}
+                </if>
+    </select>
+
+</mapper>
