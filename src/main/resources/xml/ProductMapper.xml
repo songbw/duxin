@@ -39,25 +39,25 @@
                   ,
                 price
             ) values(
-                #{name}
+                                 #{name}
                    ,
-                #{specification}
+                                 #{specification}
                    ,
-                #{hardness}
+                                 #{hardness}
                    ,
-                #{texture}
+                                 #{texture}
                    ,
-                #{color}
+                                 #{color}
                    ,
-                #{desc}
+                                 #{desc}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
                    ,
-                #{creator}
+                                 #{creator}
                    ,
-                #{price}
+                                 #{price}
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Product" keyProperty="id">

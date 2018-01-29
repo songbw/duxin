@@ -30,19 +30,19 @@
                   ,
                 updated_at
             ) values(
-                #{orderId}
+                                 #{orderId}
                    ,
-                #{productOrder}
+                                 #{productOrder}
                    ,
-                #{basketNum}
+                                 #{basketNum}
                    ,
-                #{sortUser}
+                                 #{sortUser}
                    ,
-                #{area}
+                                 #{area}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.ProductBasket" keyProperty="id">

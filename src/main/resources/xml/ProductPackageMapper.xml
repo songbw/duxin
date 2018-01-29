@@ -36,23 +36,23 @@
                   ,
                 status
             ) values(
-                #{orderId}
+                                 #{orderId}
                    ,
-                #{productOrder}
+                                 #{productOrder}
                    ,
-                #{packageNum}
+                                 #{packageNum}
                    ,
-                #{packageWeight}
+                                 #{packageWeight}
                    ,
-                #{sortUser}
+                                 #{sortUser}
                    ,
-                #{area}
+                                 #{area}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
                    ,
-                #{status}
+                                 #{status}
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.ProductPackage" keyProperty="id">

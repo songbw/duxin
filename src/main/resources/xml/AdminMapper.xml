@@ -42,27 +42,27 @@
                   ,
                 updated_at
             ) values(
-                #{name}
+                                 #{name}
                    ,
-                #{username}
+                                 #{username}
                    ,
-                #{password}
+                                 #{password}
                    ,
-                #{mobile}
+                                 #{mobile}
                    ,
-                #{email}
+                                 #{email}
                    ,
-                #{roleId}
+                                 #{roleId}
                    ,
-                #{parentId}
+                                 #{parentId}
                    ,
-                #{parentIds}
+                                 #{parentIds}
                    ,
-                #{locked}
+                                 #{locked}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id">

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jiannei.duxin.dao.CustomerBillMapper">
+<mapper namespace="com.jiannei.duxin.dao.UserOrderMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.CustomerBill">
+    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.UserOrder">
         <id column="id" property="id" />
-        <result column="dealer_id" property="dealerId" />
+        <result column="order_id" property="orderId" />
         <result column="customer_id" property="customerId" />
         <result column="customer_name" property="customerName" />
         <result column="customer_phone" property="customerPhone" />
-        <result column="order_id" property="orderId" />
-        <result column="total_price" property="totalPrice" />
-        <result column="actual_price" property="actualPrice" />
-        <result column="paid" property="paid" />
+        <result column="car_number" property="carNumber" />
+        <result column="total_weight" property="totalWeight" />
+        <result column="car_weight" property="carWeight" />
+        <result column="status" property="status" />
         <result column="remark" property="remark" />
         <result column="created_at" property="createdAt" />
         <result column="updated_at" property="updatedAt" />
+        <result column="dealer_id" property="dealerId" />
     </resultMap>
 
-    <insert id="add" parameterType="com.jiannei.duxin.entity.CustomerBill" keyProperty="id">
-        insert into customer_bill(
-                dealer_id
+    <insert id="add" parameterType="com.jiannei.duxin.entity.UserOrder" keyProperty="id">
+        insert into user_order(
+                order_id
                   ,
                 customer_id
                   ,
@@ -28,46 +29,50 @@
                   ,
                 customer_phone
                   ,
-                order_id
+                car_number
                   ,
-                total_price
+                total_weight
                   ,
-                actual_price
+                car_weight
                   ,
-                paid
+                status
                   ,
                 remark
                   ,
                 created_at
                   ,
                 updated_at
+                  ,
+                dealer_id
             ) values(
-                #{dealerId}
+                                 #{orderId}
                    ,
-                #{customerId}
+                                 #{customerId}
                    ,
-                #{customerName}
+                                 #{customerName}
                    ,
-                #{customerPhone}
+                                 #{customerPhone}
                    ,
-                #{orderId}
+                                 #{carNumber}
                    ,
-                #{totalPrice}
+                                 #{totalWeight}
                    ,
-                #{actualPrice}
+                                 #{carWeight}
                    ,
-                #{paid}
+                                 #{status}
                    ,
-                #{remark}
+                                 #{remark}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
+                   ,
+                                 #{dealerId}
             )
     </insert>
-    <update id="update" parameterType="com.jiannei.duxin.entity.CustomerBill" keyProperty="id">
-        update customer_bill set
-                dealer_id = #{dealerId}
+    <update id="update" parameterType="com.jiannei.duxin.entity.UserOrder" keyProperty="id">
+        update user_order set
+                order_id = #{orderId}
                        ,
                 customer_id = #{customerId}
                        ,
@@ -75,32 +80,34 @@
                        ,
                 customer_phone = #{customerPhone}
                        ,
-                order_id = #{orderId}
+                car_number = #{carNumber}
                        ,
-                total_price = #{totalPrice}
+                total_weight = #{totalWeight}
                        ,
-                actual_price = #{actualPrice}
+                car_weight = #{carWeight}
                        ,
-                paid = #{paid}
+                status = #{status}
                        ,
                 remark = #{remark}
                        ,
                 created_at = #{createdAt}
                        ,
                 updated_at = #{updatedAt}
+                       ,
+                dealer_id = #{dealerId}
           where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
-        delete from customer_bill where id = #{id}
+        delete from user_order where id = #{id}
     </delete>
     <select id="selectById" resultMap="BaseResultMap">
-        select * from customer_bill where id = #{id}
+        select * from user_order where id = #{id}
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
-        select * from customer_bill where 1=1
-                dealer_id = #{dealerId}
-                <if test="dealerId != null and dealerId != '' ">
-                    AND dealer_id LIKE #{dealerId}
+        select * from user_order where 1=1
+                order_id = #{orderId}
+                <if test="orderId != null and orderId != '' ">
+                    AND order_id LIKE #{orderId}
                 </if>
                 customer_id = #{customerId}
                 <if test="customerId != null and customerId != '' ">
@@ -114,21 +121,21 @@
                 <if test="customerPhone != null and customerPhone != '' ">
                     AND customer_phone LIKE #{customerPhone}
                 </if>
-                order_id = #{orderId}
-                <if test="orderId != null and orderId != '' ">
-                    AND order_id LIKE #{orderId}
+                car_number = #{carNumber}
+                <if test="carNumber != null and carNumber != '' ">
+                    AND car_number LIKE #{carNumber}
                 </if>
-                total_price = #{totalPrice}
-                <if test="totalPrice != null and totalPrice != '' ">
-                    AND total_price LIKE #{totalPrice}
+                total_weight = #{totalWeight}
+                <if test="totalWeight != null and totalWeight != '' ">
+                    AND total_weight LIKE #{totalWeight}
                 </if>
-                actual_price = #{actualPrice}
-                <if test="actualPrice != null and actualPrice != '' ">
-                    AND actual_price LIKE #{actualPrice}
+                car_weight = #{carWeight}
+                <if test="carWeight != null and carWeight != '' ">
+                    AND car_weight LIKE #{carWeight}
                 </if>
-                paid = #{paid}
-                <if test="paid != null and paid != '' ">
-                    AND paid LIKE #{paid}
+                status = #{status}
+                <if test="status != null and status != '' ">
+                    AND status LIKE #{status}
                 </if>
                 remark = #{remark}
                 <if test="remark != null and remark != '' ">
@@ -141,14 +148,18 @@
                 updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
+                </if>
+                dealer_id = #{dealerId}
+                <if test="dealerId != null and dealerId != '' ">
+                    AND dealer_id LIKE #{dealerId}
                 </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
-        select count(id) from customer_bill where 1=1
-                dealer_id = #{dealerId}
-                <if test="dealerId != null and dealerId != '' ">
-                    AND dealer_id LIKE #{dealerId}
+        select count(id) from user_order where 1=1
+                order_id = #{orderId}
+                <if test="orderId != null and orderId != '' ">
+                    AND order_id LIKE #{orderId}
                 </if>
                 customer_id = #{customerId}
                 <if test="customerId != null and customerId != '' ">
@@ -162,21 +173,21 @@
                 <if test="customerPhone != null and customerPhone != '' ">
                     AND customer_phone LIKE #{customerPhone}
                 </if>
-                order_id = #{orderId}
-                <if test="orderId != null and orderId != '' ">
-                    AND order_id LIKE #{orderId}
+                car_number = #{carNumber}
+                <if test="carNumber != null and carNumber != '' ">
+                    AND car_number LIKE #{carNumber}
                 </if>
-                total_price = #{totalPrice}
-                <if test="totalPrice != null and totalPrice != '' ">
-                    AND total_price LIKE #{totalPrice}
+                total_weight = #{totalWeight}
+                <if test="totalWeight != null and totalWeight != '' ">
+                    AND total_weight LIKE #{totalWeight}
                 </if>
-                actual_price = #{actualPrice}
-                <if test="actualPrice != null and actualPrice != '' ">
-                    AND actual_price LIKE #{actualPrice}
+                car_weight = #{carWeight}
+                <if test="carWeight != null and carWeight != '' ">
+                    AND car_weight LIKE #{carWeight}
                 </if>
-                paid = #{paid}
-                <if test="paid != null and paid != '' ">
-                    AND paid LIKE #{paid}
+                status = #{status}
+                <if test="status != null and status != '' ">
+                    AND status LIKE #{status}
                 </if>
                 remark = #{remark}
                 <if test="remark != null and remark != '' ">
@@ -189,6 +200,10 @@
                 updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
+                </if>
+                dealer_id = #{dealerId}
+                <if test="dealerId != null and dealerId != '' ">
+                    AND dealer_id LIKE #{dealerId}
                 </if>
     </select>
 

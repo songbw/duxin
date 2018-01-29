@@ -45,29 +45,29 @@
                   ,
                 updated_at
             ) values(
-                #{name}
+                                 #{name}
                    ,
-                #{username}
+                                 #{username}
                    ,
-                #{password}
+                                 #{password}
                    ,
-                #{gender}
+                                 #{gender}
                    ,
-                #{birthDate}
+                                 #{birthDate}
                    ,
-                #{mobile}
+                                 #{mobile}
                    ,
-                #{nativePlace}
+                                 #{nativePlace}
                    ,
-                #{dealerId}
+                                 #{dealerId}
                    ,
-                #{workType}
+                                 #{workType}
                    ,
-                #{locked}
+                                 #{locked}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Worker" keyProperty="id">

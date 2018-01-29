@@ -9,11 +9,12 @@ import org.springframework.beans.BeanUtils;
 import com.jiannei.duxin.dto.ResultBean;
 import com.jiannei.duxin.query.WorkerQueryBean;
 import com.jiannei.duxin.dto.WorkerDTO;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
+
 import org.springframework.util.StringUtils;
 import com.jiannei.duxin.dto.PageBean;
-import java.util.HashMap;
+
 import java.util.List;
 
 /**

@@ -30,19 +30,19 @@
                   ,
                 updated_at
             ) values(
-                #{userId}
+                                 #{userId}
                    ,
-                #{userType}
+                                 #{userType}
                    ,
-                #{accessToken}
+                                 #{accessToken}
                    ,
-                #{refreshToken}
+                                 #{refreshToken}
                    ,
-                #{expired}
+                                 #{expired}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.UserToken" keyProperty="id">

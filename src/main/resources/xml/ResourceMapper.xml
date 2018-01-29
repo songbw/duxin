@@ -39,25 +39,25 @@
                   ,
                 updated_at
             ) values(
-                #{name}
+                                 #{name}
                    ,
-                #{type}
+                                 #{type}
                    ,
-                #{url}
+                                 #{url}
                    ,
-                #{priority}
+                                 #{priority}
                    ,
-                #{parentId}
+                                 #{parentId}
                    ,
-                #{parentIds}
+                                 #{parentIds}
                    ,
-                #{permission}
+                                 #{permission}
                    ,
-                #{available}
+                                 #{available}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Resource" keyProperty="id">

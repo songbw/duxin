@@ -60,39 +60,39 @@
                   ,
                 updated_at
             ) values(
-                #{name}
+                                 #{name}
                    ,
-                #{username}
+                                 #{username}
                    ,
-                #{password}
+                                 #{password}
                    ,
-                #{companyName}
+                                 #{companyName}
                    ,
-                #{mobile}
+                                 #{mobile}
                    ,
-                #{telephone}
+                                 #{telephone}
                    ,
-                #{adminId}
+                                 #{adminId}
                    ,
-                #{provinceCode}
+                                 #{provinceCode}
                    ,
-                #{cityCode}
+                                 #{cityCode}
                    ,
-                #{areaCode}
+                                 #{areaCode}
                    ,
-                #{address}
+                                 #{address}
                    ,
-                #{roleId}
+                                 #{roleId}
                    ,
-                #{locked}
+                                 #{locked}
                    ,
-                #{email}
+                                 #{email}
                    ,
-                #{inviteCode}
+                                 #{inviteCode}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Dealer" keyProperty="id">

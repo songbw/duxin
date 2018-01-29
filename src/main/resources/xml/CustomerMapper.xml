@@ -36,23 +36,23 @@
                   ,
                 updated_at
             ) values(
-                #{name}
+                                 #{name}
                    ,
-                #{gender}
+                                 #{gender}
                    ,
-                #{birthDate}
+                                 #{birthDate}
                    ,
-                #{mobile}
+                                 #{mobile}
                    ,
-                #{telephone}
+                                 #{telephone}
                    ,
-                #{password}
+                                 #{password}
                    ,
-                #{address}
+                                 #{address}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Customer" keyProperty="id">

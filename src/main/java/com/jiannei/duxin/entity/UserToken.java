@@ -11,7 +11,6 @@ import java.math.BigDecimal;
  * @author Songbw
  * @since 2018-01-26
  */
-@TableName("user_token")
 public class UserToken implements Serializable {
 
     private static final long serialVersionUID = 1L;

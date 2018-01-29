@@ -63,41 +63,41 @@
                   ,
                 total_price
             ) values(
-                #{orderId}
+                                 #{orderId}
                    ,
-                #{productOrder}
+                                 #{productOrder}
                    ,
-                #{name}
+                                 #{name}
                    ,
-                #{specification}
+                                 #{specification}
                    ,
-                #{hardness}
+                                 #{hardness}
                    ,
-                #{texture}
+                                 #{texture}
                    ,
-                #{color}
+                                 #{color}
                    ,
-                #{customerWeight}
+                                 #{customerWeight}
                    ,
-                #{weight}
+                                 #{weight}
                    ,
-                #{remark}
+                                 #{remark}
                    ,
-                #{status}
+                                 #{status}
                    ,
-                #{priority}
+                                 #{priority}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
                    ,
-                #{customerId}
+                                 #{customerId}
                    ,
-                #{dealerId}
+                                 #{dealerId}
                    ,
-                #{price}
+                                 #{price}
                    ,
-                #{totalPrice}
+                                 #{totalPrice}
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.OrderProduct" keyProperty="id">

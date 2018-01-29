@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jiannei.duxin.dao.RoleMapper">
+<mapper namespace="com.jiannei.duxin.dao.RoleResourceMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Role">
+    <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.RoleResource">
         <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="desc" property="desc" />
+        <result column="role_id" property="roleId" />
+        <result column="res_id" property="resId" />
         <result column="created_at" property="createdAt" />
         <result column="updated_at" property="updatedAt" />
     </resultMap>
 
-    <insert id="add" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id">
-        insert into role(
-                name
+    <insert id="add" parameterType="com.jiannei.duxin.entity.RoleResource" keyProperty="id">
+        insert into role_resource(
+                role_id
                   ,
-                desc
+                res_id
                   ,
                 created_at
                   ,
                 updated_at
             ) values(
-                #{name}
+                                 #{roleId}
                    ,
-                #{desc}
+                                 #{resId}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
-    <update id="update" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id">
-        update role set
-                name = #{name}
+    <update id="update" parameterType="com.jiannei.duxin.entity.RoleResource" keyProperty="id">
+        update role_resource set
+                role_id = #{roleId}
                        ,
-                desc = #{desc}
+                res_id = #{resId}
                        ,
                 created_at = #{createdAt}
                        ,
@@ -42,20 +42,20 @@
           where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
-        delete from role where id = #{id}
+        delete from role_resource where id = #{id}
     </delete>
     <select id="selectById" resultMap="BaseResultMap">
-        select * from role where id = #{id}
+        select * from role_resource where id = #{id}
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
-        select * from role where 1=1
-                name = #{name}
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
+        select * from role_resource where 1=1
+                role_id = #{roleId}
+                <if test="roleId != null and roleId != '' ">
+                    AND role_id LIKE #{roleId}
                 </if>
-                desc = #{desc}
-                <if test="desc != null and desc != '' ">
-                    AND desc LIKE #{desc}
+                res_id = #{resId}
+                <if test="resId != null and resId != '' ">
+                    AND res_id LIKE #{resId}
                 </if>
                 created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">
@@ -68,14 +68,14 @@
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
-        select count(id) from role where 1=1
-                name = #{name}
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
+        select count(id) from role_resource where 1=1
+                role_id = #{roleId}
+                <if test="roleId != null and roleId != '' ">
+                    AND role_id LIKE #{roleId}
                 </if>
-                desc = #{desc}
-                <if test="desc != null and desc != '' ">
-                    AND desc LIKE #{desc}
+                res_id = #{resId}
+                <if test="resId != null and resId != '' ">
+                    AND res_id LIKE #{resId}
                 </if>
                 created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">

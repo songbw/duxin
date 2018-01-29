@@ -27,17 +27,17 @@
                   ,
                 updated_at
             ) values(
-                #{userId}
+                                 #{userId}
                    ,
-                #{userType}
+                                 #{userType}
                    ,
-                #{carNumber}
+                                 #{carNumber}
                    ,
-                #{desc}
+                                 #{desc}
                    ,
-                #{createdAt}
+                                  now()
                    ,
-                #{updatedAt}
+                                  now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Car" keyProperty="id">
