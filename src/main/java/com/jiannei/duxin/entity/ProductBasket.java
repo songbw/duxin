@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * 产品分拣表
  * </p>
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 public class ProductBasket implements Serializable {
 

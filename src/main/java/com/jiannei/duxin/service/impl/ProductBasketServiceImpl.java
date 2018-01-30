@@ -9,12 +9,9 @@ import org.springframework.beans.BeanUtils;
 import com.jiannei.duxin.dto.ResultBean;
 import com.jiannei.duxin.query.ProductBasketQueryBean;
 import com.jiannei.duxin.dto.ProductBasketDTO;
-
 import java.util.*;
-
 import org.springframework.util.StringUtils;
 import com.jiannei.duxin.dto.PageBean;
-
 import java.util.List;
 
 /**
@@ -23,7 +20,7 @@ import java.util.List;
  * </p>
  *
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 @Service("IProductBasketService")
 public class ProductBasketServiceImpl implements IProductBasketService {

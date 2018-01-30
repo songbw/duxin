@@ -45,7 +45,7 @@ CREATE TABLE `car` (
   `user_id` bigint(20) DEFAULT NULL COMMENT '用户ID',
   `user_type` int(11) DEFAULT NULL COMMENT '用户类型',
   `car_number` varchar(255) DEFAULT NULL COMMENT '车牌号',
-  `desc` varchar(255) DEFAULT NULL COMMENT '描述',
+  `remark` varchar(255) DEFAULT NULL COMMENT '描述',
   `created_at` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
@@ -156,7 +156,7 @@ CREATE TABLE `product` (
   `hardness` varchar(255) DEFAULT NULL COMMENT '产品硬度',
   `texture` varchar(255) DEFAULT NULL COMMENT '产品材质',
   `color` varchar(255) DEFAULT NULL COMMENT '产品表色',
-  `desc` varchar(255) DEFAULT NULL COMMENT '描述',
+  `remark` varchar(255) DEFAULT NULL COMMENT '描述',
   `created_at` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
   `creator` bigint(20) DEFAULT NULL COMMENT '创建者ID（dealer）',
@@ -224,7 +224,7 @@ DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
-  `desc` varchar(255) DEFAULT NULL COMMENT '描述',
+  `remark` varchar(255) DEFAULT NULL COMMENT '描述',
   `created_at` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)

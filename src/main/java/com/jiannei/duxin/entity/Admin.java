@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * 管理员表
  * </p>
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 public class Admin implements Serializable {
 

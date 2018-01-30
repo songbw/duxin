@@ -18,62 +18,50 @@
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.ProductPackage" keyProperty="id">
         insert into product_package(
-                order_id
-                  ,
-                product_order
-                  ,
-                package_num
-                  ,
-                package_weight
-                  ,
-                sort_user
-                  ,
-                area
-                  ,
-                created_at
-                  ,
-                updated_at
-                  ,
-                status
-            ) values(
+                order_id                   ,
+                product_order                   ,
+                package_num                   ,
+                package_weight                   ,
+                sort_user                   ,
+                area                   ,
+                created_at                   ,
+                updated_at                   ,
+                status             ) values(
                                  #{orderId}
-                   ,
+                 ,
                                  #{productOrder}
-                   ,
+                 ,
                                  #{packageNum}
-                   ,
+                 ,
                                  #{packageWeight}
-                   ,
+                 ,
                                  #{sortUser}
-                   ,
+                 ,
                                  #{area}
-                   ,
-                                  now()
-                   ,
-                                  now()
-                   ,
+                 ,
+                                 now()
+                 ,
+                                 now()
+                 ,
                                  #{status}
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.ProductPackage" keyProperty="id">
         update product_package set
-                order_id = #{orderId}
-                       ,
-                product_order = #{productOrder}
-                       ,
-                package_num = #{packageNum}
-                       ,
-                package_weight = #{packageWeight}
-                       ,
-                sort_user = #{sortUser}
-                       ,
-                area = #{area}
-                       ,
-                created_at = #{createdAt}
-                       ,
-                updated_at = #{updatedAt}
-                       ,
-                status = #{status}
+                                            <if test="orderId != null and orderId != '' ">
+                            order_id = #{orderId} ,                        </if>
+                                            <if test="productOrder != null and productOrder != '' ">
+                            product_order = #{productOrder} ,                        </if>
+                                            <if test="packageNum != null and packageNum != '' ">
+                            package_num = #{packageNum} ,                        </if>
+                                            <if test="packageWeight != null and packageWeight != '' ">
+                            package_weight = #{packageWeight} ,                        </if>
+                                            <if test="sortUser != null and sortUser != '' ">
+                            sort_user = #{sortUser} ,                        </if>
+                                            <if test="area != null and area != '' ">
+                            area = #{area} ,                        </if>
+                                          updated_at = now() ,                                            <if test="status != null and status != '' ">
+                            status = #{status}                        </if>
           where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
@@ -84,39 +72,30 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from product_package where 1=1
-                order_id = #{orderId}
                 <if test="orderId != null and orderId != '' ">
                     AND order_id LIKE #{orderId}
                 </if>
-                product_order = #{productOrder}
                 <if test="productOrder != null and productOrder != '' ">
                     AND product_order LIKE #{productOrder}
                 </if>
-                package_num = #{packageNum}
                 <if test="packageNum != null and packageNum != '' ">
                     AND package_num LIKE #{packageNum}
                 </if>
-                package_weight = #{packageWeight}
                 <if test="packageWeight != null and packageWeight != '' ">
                     AND package_weight LIKE #{packageWeight}
                 </if>
-                sort_user = #{sortUser}
                 <if test="sortUser != null and sortUser != '' ">
                     AND sort_user LIKE #{sortUser}
                 </if>
-                area = #{area}
                 <if test="area != null and area != '' ">
                     AND area LIKE #{area}
                 </if>
-                created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">
                     AND created_at LIKE #{createdAt}
                 </if>
-                updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
                 </if>
-                status = #{status}
                 <if test="status != null and status != '' ">
                     AND status LIKE #{status}
                 </if>
@@ -124,39 +103,30 @@
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from product_package where 1=1
-                order_id = #{orderId}
                 <if test="orderId != null and orderId != '' ">
                     AND order_id LIKE #{orderId}
                 </if>
-                product_order = #{productOrder}
                 <if test="productOrder != null and productOrder != '' ">
                     AND product_order LIKE #{productOrder}
                 </if>
-                package_num = #{packageNum}
                 <if test="packageNum != null and packageNum != '' ">
                     AND package_num LIKE #{packageNum}
                 </if>
-                package_weight = #{packageWeight}
                 <if test="packageWeight != null and packageWeight != '' ">
                     AND package_weight LIKE #{packageWeight}
                 </if>
-                sort_user = #{sortUser}
                 <if test="sortUser != null and sortUser != '' ">
                     AND sort_user LIKE #{sortUser}
                 </if>
-                area = #{area}
                 <if test="area != null and area != '' ">
                     AND area LIKE #{area}
                 </if>
-                created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">
                     AND created_at LIKE #{createdAt}
                 </if>
-                updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
                 </if>
-                status = #{status}
                 <if test="status != null and status != '' ">
                     AND status LIKE #{status}
                 </if>

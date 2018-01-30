@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * 车辆信息表
  * </p>
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 public class Car implements Serializable {
 
@@ -34,7 +34,7 @@ public class Car implements Serializable {
     /**
      * 描述
      */
-    private String desc;
+    private String remark;
     /**
      * 创建时间
      */
@@ -77,12 +77,12 @@ public class Car implements Serializable {
         this.carNumber = carNumber;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Date getCreatedAt() {
@@ -108,7 +108,7 @@ public class Car implements Serializable {
         ", userId=" + userId +
         ", userType=" + userType +
         ", carNumber=" + carNumber +
-        ", desc=" + desc +
+        ", remark=" + remark +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +
         "}";

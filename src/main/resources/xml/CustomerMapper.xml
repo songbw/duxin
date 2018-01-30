@@ -18,63 +18,51 @@
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.Customer" keyProperty="id">
         insert into customer(
-                name
-                  ,
-                gender
-                  ,
-                birth_date
-                  ,
-                mobile
-                  ,
-                telephone
-                  ,
-                password
-                  ,
-                address
-                  ,
-                created_at
-                  ,
-                updated_at
-            ) values(
+                name                   ,
+                gender                   ,
+                birth_date                   ,
+                mobile                   ,
+                telephone                   ,
+                password                   ,
+                address                   ,
+                created_at                   ,
+                updated_at             ) values(
                                  #{name}
-                   ,
+                 ,
                                  #{gender}
-                   ,
+                 ,
                                  #{birthDate}
-                   ,
+                 ,
                                  #{mobile}
-                   ,
+                 ,
                                  #{telephone}
-                   ,
+                 ,
                                  #{password}
-                   ,
+                 ,
                                  #{address}
-                   ,
-                                  now()
-                   ,
-                                  now()
+                 ,
+                                 now()
+                 ,
+                                 now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Customer" keyProperty="id">
         update customer set
-                name = #{name}
-                       ,
-                gender = #{gender}
-                       ,
-                birth_date = #{birthDate}
-                       ,
-                mobile = #{mobile}
-                       ,
-                telephone = #{telephone}
-                       ,
-                password = #{password}
-                       ,
-                address = #{address}
-                       ,
-                created_at = #{createdAt}
-                       ,
-                updated_at = #{updatedAt}
-          where id = #{id}
+                                            <if test="name != null and name != '' ">
+                            name = #{name} ,                        </if>
+                                            <if test="gender != null and gender != '' ">
+                            gender = #{gender} ,                        </if>
+                                            <if test="birthDate != null and birthDate != '' ">
+                            birth_date = #{birthDate} ,                        </if>
+                                            <if test="mobile != null and mobile != '' ">
+                            mobile = #{mobile} ,                        </if>
+                                            <if test="telephone != null and telephone != '' ">
+                            telephone = #{telephone} ,                        </if>
+                                            <if test="password != null and password != '' ">
+                            password = #{password} ,                        </if>
+                                            <if test="address != null and address != '' ">
+                            address = #{address} ,                        </if>
+                                          updated_at = now()          where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from customer where id = #{id}
@@ -84,39 +72,30 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from customer where 1=1
-                name = #{name}
                 <if test="name != null and name != '' ">
                     AND name LIKE #{name}
                 </if>
-                gender = #{gender}
                 <if test="gender != null and gender != '' ">
                     AND gender LIKE #{gender}
                 </if>
-                birth_date = #{birthDate}
                 <if test="birthDate != null and birthDate != '' ">
                     AND birth_date LIKE #{birthDate}
                 </if>
-                mobile = #{mobile}
                 <if test="mobile != null and mobile != '' ">
                     AND mobile LIKE #{mobile}
                 </if>
-                telephone = #{telephone}
                 <if test="telephone != null and telephone != '' ">
                     AND telephone LIKE #{telephone}
                 </if>
-                password = #{password}
                 <if test="password != null and password != '' ">
                     AND password LIKE #{password}
                 </if>
-                address = #{address}
                 <if test="address != null and address != '' ">
                     AND address LIKE #{address}
                 </if>
-                created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">
                     AND created_at LIKE #{createdAt}
                 </if>
-                updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
                 </if>
@@ -124,39 +103,30 @@
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from customer where 1=1
-                name = #{name}
                 <if test="name != null and name != '' ">
                     AND name LIKE #{name}
                 </if>
-                gender = #{gender}
                 <if test="gender != null and gender != '' ">
                     AND gender LIKE #{gender}
                 </if>
-                birth_date = #{birthDate}
                 <if test="birthDate != null and birthDate != '' ">
                     AND birth_date LIKE #{birthDate}
                 </if>
-                mobile = #{mobile}
                 <if test="mobile != null and mobile != '' ">
                     AND mobile LIKE #{mobile}
                 </if>
-                telephone = #{telephone}
                 <if test="telephone != null and telephone != '' ">
                     AND telephone LIKE #{telephone}
                 </if>
-                password = #{password}
                 <if test="password != null and password != '' ">
                     AND password LIKE #{password}
                 </if>
-                address = #{address}
                 <if test="address != null and address != '' ">
                     AND address LIKE #{address}
                 </if>
-                created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">
                     AND created_at LIKE #{createdAt}
                 </if>
-                updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
                 </if>

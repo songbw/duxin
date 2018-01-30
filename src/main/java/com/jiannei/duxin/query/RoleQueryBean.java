@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * 角色表
  * </p>
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 
 public class RoleQueryBean extends QueryBean {
@@ -29,7 +29,7 @@ public class RoleQueryBean extends QueryBean {
      * 描述
      */
 
-    private String desc;
+    private String remark;
     /**
      * 创建时间
      */
@@ -58,12 +58,12 @@ public class RoleQueryBean extends QueryBean {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Date getCreatedAt() {

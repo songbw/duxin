@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * dealer表
  * </p>
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 
 public class DealerQueryBean extends QueryBean {

@@ -8,52 +8,43 @@
         <result column="user_id" property="userId" />
         <result column="user_type" property="userType" />
         <result column="car_number" property="carNumber" />
-        <result column="desc" property="desc" />
+        <result column="remark" property="remark" />
         <result column="created_at" property="createdAt" />
         <result column="updated_at" property="updatedAt" />
     </resultMap>
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.Car" keyProperty="id">
         insert into car(
-                user_id
-                  ,
-                user_type
-                  ,
-                car_number
-                  ,
-                desc
-                  ,
-                created_at
-                  ,
-                updated_at
-            ) values(
+                user_id                   ,
+                user_type                   ,
+                car_number                   ,
+                remark                   ,
+                created_at                   ,
+                updated_at             ) values(
                                  #{userId}
-                   ,
+                 ,
                                  #{userType}
-                   ,
+                 ,
                                  #{carNumber}
-                   ,
-                                 #{desc}
-                   ,
-                                  now()
-                   ,
-                                  now()
+                 ,
+                                 #{remark}
+                 ,
+                                 now()
+                 ,
+                                 now()
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Car" keyProperty="id">
         update car set
-                user_id = #{userId}
-                       ,
-                user_type = #{userType}
-                       ,
-                car_number = #{carNumber}
-                       ,
-                desc = #{desc}
-                       ,
-                created_at = #{createdAt}
-                       ,
-                updated_at = #{updatedAt}
-          where id = #{id}
+                                            <if test="userId != null and userId != '' ">
+                            user_id = #{userId} ,                        </if>
+                                            <if test="userType != null and userType != '' ">
+                            user_type = #{userType} ,                        </if>
+                                            <if test="carNumber != null and carNumber != '' ">
+                            car_number = #{carNumber} ,                        </if>
+                                            <if test="remark != null and remark != '' ">
+                            remark = #{remark} ,                        </if>
+                                          updated_at = now()          where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from car where id = #{id}
@@ -63,27 +54,21 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from car where 1=1
-                user_id = #{userId}
                 <if test="userId != null and userId != '' ">
                     AND user_id LIKE #{userId}
                 </if>
-                user_type = #{userType}
                 <if test="userType != null and userType != '' ">
                     AND user_type LIKE #{userType}
                 </if>
-                car_number = #{carNumber}
                 <if test="carNumber != null and carNumber != '' ">
                     AND car_number LIKE #{carNumber}
                 </if>
-                desc = #{desc}
-                <if test="desc != null and desc != '' ">
-                    AND desc LIKE #{desc}
+                <if test="remark != null and remark != '' ">
+                    AND remark LIKE #{remark}
                 </if>
-                created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">
                     AND created_at LIKE #{createdAt}
                 </if>
-                updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
                 </if>
@@ -91,27 +76,21 @@
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from car where 1=1
-                user_id = #{userId}
                 <if test="userId != null and userId != '' ">
                     AND user_id LIKE #{userId}
                 </if>
-                user_type = #{userType}
                 <if test="userType != null and userType != '' ">
                     AND user_type LIKE #{userType}
                 </if>
-                car_number = #{carNumber}
                 <if test="carNumber != null and carNumber != '' ">
                     AND car_number LIKE #{carNumber}
                 </if>
-                desc = #{desc}
-                <if test="desc != null and desc != '' ">
-                    AND desc LIKE #{desc}
+                <if test="remark != null and remark != '' ">
+                    AND remark LIKE #{remark}
                 </if>
-                created_at = #{createdAt}
                 <if test="createdAt != null and createdAt != '' ">
                     AND created_at LIKE #{createdAt}
                 </if>
-                updated_at = #{updatedAt}
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
                 </if>

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * 
  * </p>
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 
 public class UserTokenDTO implements Serializable {

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * 产品信息表
  * </p>
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 public class Product implements Serializable {
 
@@ -42,7 +42,7 @@ public class Product implements Serializable {
     /**
      * 描述
      */
-    private String desc;
+    private String remark;
     /**
      * 创建时间
      */
@@ -109,12 +109,12 @@ public class Product implements Serializable {
         this.color = color;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Date getCreatedAt() {
@@ -158,7 +158,7 @@ public class Product implements Serializable {
         ", hardness=" + hardness +
         ", texture=" + texture +
         ", color=" + color +
-        ", desc=" + desc +
+        ", remark=" + remark +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +
         ", creator=" + creator +

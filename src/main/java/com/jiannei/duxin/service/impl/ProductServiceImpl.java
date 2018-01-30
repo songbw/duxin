@@ -9,12 +9,9 @@ import org.springframework.beans.BeanUtils;
 import com.jiannei.duxin.dto.ResultBean;
 import com.jiannei.duxin.query.ProductQueryBean;
 import com.jiannei.duxin.dto.ProductDTO;
-
 import java.util.*;
-
 import org.springframework.util.StringUtils;
 import com.jiannei.duxin.dto.PageBean;
-
 import java.util.List;
 
 /**
@@ -23,7 +20,7 @@ import java.util.List;
  * </p>
  *
  * @author Songbw
- * @since 2018-01-26
+ * @since 2018-01-30
  */
 @Service("IProductService")
 public class ProductServiceImpl implements IProductService {
@@ -87,8 +84,8 @@ public class ProductServiceImpl implements IProductService {
             if (!StringUtils.isEmpty(queryBean.getColor())) {
                 map.put("color", new StringBuilder("%").append(queryBean.getColor()).append("%").toString());
             }
-            if (!StringUtils.isEmpty(queryBean.getDesc())) {
-                map.put("desc", new StringBuilder("%").append(queryBean.getDesc()).append("%").toString());
+            if (!StringUtils.isEmpty(queryBean.getRemark())) {
+                map.put("remark", new StringBuilder("%").append(queryBean.getRemark()).append("%").toString());
             }
             if (!StringUtils.isEmpty(queryBean.getCreatedAt())) {
                 map.put("createdAt", new StringBuilder("%").append(queryBean.getCreatedAt()).append("%").toString());
