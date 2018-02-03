@@ -132,6 +132,31 @@
         <check.imei.flag>false</check.imei.flag>
       </properties>
     </profile>
+
+    <profile>
+      <id>130</id>
+      <activation><activeByDefault>true</activeByDefault></activation>
+      <properties>
+        <master.db.url><![CDATA[jdbc:mysql://42.121.121.130:3307/jiannei?useUnicode=true&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoreconnect=true]]></master.db.url>
+        <master.db.username>root</master.db.username>
+        <master.db.password>xiquedaojia@123</master.db.password>
+        <slave.db.url><![CDATA[jdbc:mysql://42.121.121.130:3307/jiannei?useUnicode=true&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;autoreconnect=true]]></slave.db.url>
+        <slave.db.username>root</slave.db.username>
+        <slave.db.password>xiquedaojia@123</slave.db.password>
+        <zookeeper.address>192.168.148.14:2181,192.168.148.14:2181</zookeeper.address>
+        <mongo.url>192.168.148.12</mongo.url>
+        <mongo.db.name>smartauto</mongo.db.name>
+        <mongo.db.username></mongo.db.username>
+        <mongo.db.password></mongo.db.password>
+        <!--<zookeeper.address>127.0.0.1:2181,127.0.0.1:2181</zookeeper.address>-->
+        <dubbo.local>_local</dubbo.local>
+        <dubbo.port>60001</dubbo.port>
+
+        <logs.path>./logs</logs.path>
+        <nav.yixin.url.check.imei>http://wecloud.wwnb.mapbar.com/user/user/checkImei</nav.yixin.url.check.imei>
+        <check.imei.flag>false</check.imei.flag>
+      </properties>
+    </profile>
   </profiles>
 
   <build>
