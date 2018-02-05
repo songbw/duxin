@@ -15,6 +15,7 @@ public enum SystemStatus {
     PASSWORD_IS_NULL(50004, "密码不能为空"),
     USERNAME_PASSWORD_IS_ERROR(50005, "登录失败，请检查用户名或密码！"),
     USERNAME_EXIST(50006, "用户名重复"),
+    USERNAME_NO_EXIST(50007, "用户名不存在"),
     UUIMS_ERROR(60001, "请求认证服务器出错"),
     ID_NOT_FOUND(400001, "请求参数不匹配"),
     TOKEN_TIME_OUT(600002, "登录过期,请重新登录"),

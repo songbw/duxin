@@ -51,6 +51,8 @@ public class AdminServiceImpl implements IAdminService {
                 BeanUtils.copyProperties(dto,entity);
                 int id = mapper.update(entity) ;
                 resultBean.setSucResult(id);
+            } else {
+                resultBean.setFailMsg(SystemStatus.USERNAME_NO_EXIST);
             }
             return resultBean;
         }
@@ -62,6 +64,8 @@ public class AdminServiceImpl implements IAdminService {
             if (entity != null) {
                 int result = mapper.delete(id) ;
                 resultBean.setSucResult(result);
+            } else {
+                resultBean.setFailMsg(SystemStatus.USERNAME_NO_EXIST);
             }
             return resultBean;
         }
