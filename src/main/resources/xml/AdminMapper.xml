@@ -155,5 +155,8 @@
                     AND updated_at LIKE #{updatedAt}
                 </if>
     </select>
+    <select id="selectByUsername" resultMap="BaseResultMap">
+        select * from admin where username = #{username}
+    </select>
 
 </mapper>

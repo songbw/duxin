@@ -25,4 +25,6 @@ public interface AdminMapper{
         List<Admin> selectAllByPage(Map map) ;
 
         int selectAllBySize(Map map);
+
+        Admin selectByUsername(String username) ;
 }

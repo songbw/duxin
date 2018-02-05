@@ -1,5 +1,6 @@
 package com.jiannei.duxin.service.impl;
 
+import com.jiannei.duxin.dto.SystemStatus;
 import com.jiannei.duxin.entity.Admin;
 import com.jiannei.duxin.dao.AdminMapper;
 import com.jiannei.duxin.service.IAdminService;
@@ -31,10 +32,14 @@ public class AdminServiceImpl implements IAdminService {
         @Override
         public ResultBean insert(AdminDTO dto) throws Exception {
             ResultBean resultBean = new ResultBean();
-            Admin entity = new Admin();
-            BeanUtils.copyProperties(dto,entity);
-            int id = mapper.add(entity) ;
-            resultBean.setSucResult(id);
+            Admin entity = mapper.selectByUsername(dto.getUsername()) ;
+            if (entity == null) {
+                BeanUtils.copyProperties(dto,entity);
+                int id = mapper.add(entity) ;
+                resultBean.setSucResult(id);
+            } else {
+                resultBean.setFailMsg(SystemStatus.USERNAME_EXIST);
+            }
             return resultBean;
         }
 
