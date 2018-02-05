@@ -6,82 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="75e58831-e3b7-4e4d-8e7f-6cbd290668cc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/jiannei.sql" afterPath="$PROJECT_DIR$/jiannei.sql" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/AdminDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/AdminDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CarDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CarDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CustomerBillDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CustomerBillDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CustomerDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CustomerDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/DealerDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/DealerDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/OrderProductDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/OrderProductDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ProductBasketDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ProductBasketDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ProductDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ProductDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ProductPackageDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ProductPackageDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ResourceDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/ResourceDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/RoleDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/RoleDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/RoleResourceDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/RoleResourceDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/UserOrderDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/UserOrderDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/UserTokenDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/UserTokenDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/WorkerDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/WorkerDTO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Admin.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Admin.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Car.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Car.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Customer.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Customer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/CustomerBill.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/CustomerBill.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Dealer.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Dealer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/OrderProduct.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/OrderProduct.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Product.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Product.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/ProductBasket.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/ProductBasket.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/ProductPackage.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/ProductPackage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Resource.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Resource.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Role.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Role.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/RoleResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/RoleResource.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/UserOrder.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/UserOrder.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/UserToken.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/UserToken.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Worker.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Worker.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/AdminQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/AdminQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CarQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CarQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CustomerBillQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CustomerBillQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CustomerQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CustomerQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/DealerQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/DealerQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/OrderProductQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/OrderProductQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ProductBasketQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ProductBasketQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ProductPackageQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ProductPackageQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ProductQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ProductQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ResourceQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/ResourceQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/RoleQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/RoleQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/RoleResourceQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/RoleResourceQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/UserOrderQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/UserOrderQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/UserTokenQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/UserTokenQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/WorkerQueryBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/WorkerQueryBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/AdminServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/AdminServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CarServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CarServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CustomerBillServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CustomerBillServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CustomerServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CustomerServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/DealerServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/DealerServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/OrderProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/OrderProductServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ProductBasketServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ProductBasketServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ProductPackageServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ProductPackageServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ProductServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ResourceServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/ResourceServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/RoleResourceServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/RoleResourceServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/RoleServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/UserOrderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/UserOrderServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/UserTokenServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/UserTokenServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/WorkerServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/WorkerServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/AdminMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/AdminMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/CarMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/CarMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/CustomerBillMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/CustomerBillMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/CustomerMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/CustomerMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/DealerMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/DealerMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/OrderProductMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/OrderProductMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/ProductBasketMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/ProductBasketMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/ProductMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/ProductMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/ProductPackageMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/ProductPackageMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/ResourceMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/ResourceMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/RoleMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/RoleMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/RoleResourceMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/RoleResourceMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/UserOrderMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/UserOrderMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/UserTokenMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/UserTokenMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/WorkerMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/xml/WorkerMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -109,7 +33,7 @@
       <file leaf-file-name="jiannei.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jiannei.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
+            <state relative-caret-position="5907">
               <caret line="179" column="20" lean-forward="false" selection-start-line="179" selection-start-column="20" selection-end-line="179" selection-end-column="20" />
               <folding />
             </state>
@@ -119,7 +43,7 @@
       <file leaf-file-name="CarQueryBean.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CarQueryBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
+            <state relative-caret-position="2112">
               <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding />
             </state>
@@ -129,7 +53,7 @@
       <file leaf-file-name="Car.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Car.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
+            <state relative-caret-position="429">
               <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
@@ -139,7 +63,7 @@
       <file leaf-file-name="CarDTO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CarDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
+            <state relative-caret-position="1320">
               <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="23" />
               <folding />
             </state>
@@ -149,7 +73,7 @@
       <file leaf-file-name="CarMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/xml/CarMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-297">
+            <state relative-caret-position="693">
               <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
               <folding>
                 <marker date="1517297608397" expanded="true" signature="790:1446" ph="insert into car... " />
@@ -166,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CarServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+              <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -175,7 +99,7 @@
       <file leaf-file-name="AdminServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/AdminServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
+            <state relative-caret-position="627">
               <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding />
             </state>
@@ -185,8 +109,8 @@
       <file leaf-file-name="AdminDTO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/AdminDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+            <state relative-caret-position="2343">
+              <caret line="73" column="7" lean-forward="true" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -321,7 +245,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -408,8 +333,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -606,12 +530,13 @@
       <workItem from="1516957153879" duration="4127000" />
       <workItem from="1516961534414" duration="78000" />
       <workItem from="1517192555164" duration="13198000" />
-      <workItem from="1517279384739" duration="7877000" />
+      <workItem from="1517279384739" duration="8470000" />
+      <workItem from="1517821496443" duration="80000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26365000" />
+    <option name="totallyTimeSpent" value="27038000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2409" y="-9" width="2418" height="1318" extended-state="6" />
@@ -628,13 +553,13 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23858742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2424634" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33272395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33272395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -805,9 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -933,7 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -941,13 +862,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1848">
           <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jiannei.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="5907">
           <caret line="179" column="20" lean-forward="false" selection-start-line="179" selection-start-column="20" selection-end-line="179" selection-end-column="20" />
           <folding />
         </state>
@@ -955,7 +875,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/query/CarQueryBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
+        <state relative-caret-position="2112">
           <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding />
         </state>
@@ -963,7 +883,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/entity/Car.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
+        <state relative-caret-position="429">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
@@ -971,7 +891,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/CarDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
+        <state relative-caret-position="1320">
           <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="23" />
           <folding />
         </state>
@@ -1027,7 +947,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/xml/CarMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-297">
+        <state relative-caret-position="693">
           <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
           <folding>
             <marker date="1517297608397" expanded="true" signature="790:1446" ph="insert into car... " />
@@ -1050,14 +970,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/CarServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/service/impl/AdminServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="627">
           <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding />
         </state>
@@ -1065,8 +985,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jiannei/duxin/dto/AdminDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+        <state relative-caret-position="2343">
+          <caret line="73" column="7" lean-forward="true" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
           <folding />
         </state>
       </provider>
