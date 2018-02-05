@@ -1,6 +1,7 @@
 package com.jiannei.duxin.controller;
 
 
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,14 +55,14 @@ public class AdminController {
     @ResponseBody
     public ResultBean add(@RequestBody AdminDTO dto) {
             ResultBean resultBean = new ResultBean();
-//        if (StringUtils.isEmpty(usersDTO.getUsername())) {
-//            resultBean.setFailMsg(200101,"用户名不能为空");
-//            return resultBean;
-//        }
-//        if (StringUtils.isEmpty(usersDTO.getPassword())) {
-//            resultBean.setFailMsg(200102,"密码不能为空");
-//            return resultBean;
-//        }
+            if (StringUtils.isEmpty(dto.getUsername())) {
+                resultBean.setFailMsg(SystemStatus.USERNAME_IS_NULL);
+                return resultBean;
+            }
+            if (StringUtils.isEmpty(dto.getPassword())) {
+                resultBean.setFailMsg(SystemStatus.PASSWORD_IS_NULL);
+                return resultBean;
+            }
             try {
                 resultBean = service.insert(dto) ;
             } catch (Exception e) {
