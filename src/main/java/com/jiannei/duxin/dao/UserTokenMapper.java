@@ -20,7 +20,11 @@ public interface UserTokenMapper{
 
         int delete(int id);
 
+        int deleteByRefreshToken(String refreshToken);
+
         UserToken selectById(Long id);
+
+        UserToken selectByUserId(UserToken entity);
 
         List<UserToken> selectAllByPage(Map map) ;
 

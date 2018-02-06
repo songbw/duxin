@@ -55,6 +55,9 @@
     <delete id="delete" parameterType="int">
         delete from user_token where id = #{id}
     </delete>
+    <delete id="deleteByRefreshToken" parameterType="string">
+        delete from user_token where refresh_token = #{refreshToken}
+    </delete>
     <select id="selectById" resultMap="BaseResultMap">
         select * from user_token where id = #{id}
     </select>
@@ -106,6 +109,9 @@
                 <if test="updatedAt != null and updatedAt != '' ">
                     AND updated_at LIKE #{updatedAt}
                 </if>
+    </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select * from user_token where user_id = #{userId} and user_type = #{userType}
     </select>
 
 </mapper>

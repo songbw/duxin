@@ -4,13 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Car">
-        <id column="id" property="id" />
-        <result column="user_id" property="userId" />
-        <result column="user_type" property="userType" />
-        <result column="car_number" property="carNumber" />
-        <result column="remark" property="remark" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_type" property="userType"/>
+        <result column="car_number" property="carNumber"/>
+        <result column="remark" property="remark"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
     </resultMap>
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.Car" keyProperty="id">
@@ -36,15 +36,19 @@
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Car" keyProperty="id">
         update car set
-                                            <if test="userId != null and userId != '' ">
-                            user_id = #{userId} ,                        </if>
-                                            <if test="userType != null and userType != '' ">
-                            user_type = #{userType} ,                        </if>
-                                            <if test="carNumber != null and carNumber != '' ">
-                            car_number = #{carNumber} ,                        </if>
-                                            <if test="remark != null and remark != '' ">
-                            remark = #{remark} ,                        </if>
-                                          updated_at = now()          where id = #{id}
+        <if test="userId != null and userId != '' ">
+            user_id = #{userId} ,
+        </if>
+        <if test="userType != null and userType != '' ">
+            user_type = #{userType} ,
+        </if>
+        <if test="carNumber != null and carNumber != '' ">
+            car_number = #{carNumber} ,
+        </if>
+        <if test="remark != null and remark != '' ">
+            remark = #{remark} ,
+        </if>
+        updated_at = now() where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from car where id = #{id}
@@ -54,46 +58,46 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from car where 1=1
-                <if test="userId != null and userId != '' ">
-                    AND user_id LIKE #{userId}
-                </if>
-                <if test="userType != null and userType != '' ">
-                    AND user_type LIKE #{userType}
-                </if>
-                <if test="carNumber != null and carNumber != '' ">
-                    AND car_number LIKE #{carNumber}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="userId != null and userId != '' ">
+            AND user_id LIKE #{userId}
+        </if>
+        <if test="userType != null and userType != '' ">
+            AND user_type LIKE #{userType}
+        </if>
+        <if test="carNumber != null and carNumber != '' ">
+            AND car_number LIKE #{carNumber}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from car where 1=1
-                <if test="userId != null and userId != '' ">
-                    AND user_id LIKE #{userId}
-                </if>
-                <if test="userType != null and userType != '' ">
-                    AND user_type LIKE #{userType}
-                </if>
-                <if test="carNumber != null and carNumber != '' ">
-                    AND car_number LIKE #{carNumber}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="userId != null and userId != '' ">
+            AND user_id LIKE #{userId}
+        </if>
+        <if test="userType != null and userType != '' ">
+            AND user_type LIKE #{userType}
+        </if>
+        <if test="carNumber != null and carNumber != '' ">
+            AND car_number LIKE #{carNumber}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
     </select>
 
 </mapper>

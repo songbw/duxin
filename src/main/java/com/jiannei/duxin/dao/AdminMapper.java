@@ -27,4 +27,10 @@ public interface AdminMapper{
         int selectAllBySize(Map map);
 
         Admin selectByUsername(String username) ;
+
+        int updateLocked(Admin entity) ;
+
+        int updatePasswd(Admin entity) ;
+
+        Admin selectUserByToken(String token) ;
 }
