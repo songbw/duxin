@@ -34,9 +34,21 @@ public class AdminServiceImpl implements IAdminService {
             ResultBean resultBean = new ResultBean();
             Admin entity = mapper.selectByUsername(dto.getUsername()) ;
             if (entity == null) {
+                entity = new Admin();
                 BeanUtils.copyProperties(dto,entity);
-                int id = mapper.add(entity) ;
-                resultBean.setSucResult(id);
+                if (entity.getParentId() != 0l) {
+                    Admin temp = mapper.selectById(entity.getParentId());
+                    if (temp != null) {
+                        entity.setParentIds(temp.getParentIds());
+                    } else {
+                        resultBean.setFailMsg(SystemStatus.PARENT_NO_EXIST);
+                        return resultBean;
+                    }
+                }
+                mapper.add(entity);
+                entity.setParentIds(entity.getParentIds()+entity.getId()+",");
+                mapper.update(entity);
+                resultBean.setSucResult(entity.getId());
             } else {
                 resultBean.setFailMsg(SystemStatus.USERNAME_EXIST);
             }

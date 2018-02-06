@@ -18,7 +18,7 @@
         <result column="updated_at" property="updatedAt" />
     </resultMap>
 
-    <insert id="add" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id">
+    <insert id="add" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id" useGeneratedKeys="true" keyColumn="id">
         insert into admin(
                 name                   ,
                 username                   ,

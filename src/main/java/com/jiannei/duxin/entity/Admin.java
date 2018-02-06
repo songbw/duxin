@@ -46,15 +46,15 @@ public class Admin implements Serializable {
     /**
      * 父ID
      */
-    private Long parentId;
+    private Long parentId = 0l;
     /**
      * 父关联ID
      */
-    private String parentIds;
+    private String parentIds = "0,";
     /**
      * 冻结/激活（0：激活，1：冻结）
      */
-    private Integer locked;
+    private Integer locked = 0;
     /**
      * 创建时间
      */
