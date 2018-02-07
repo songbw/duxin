@@ -21,9 +21,10 @@ public class MD5Util {
     /**
      * 默认的密码字符串组合，用来将字节转换成 16 进制表示的字符,Apache校验下载的文件的正确性用的就是默认的这个组合
      */
-    protected static char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
-            'f' };
+    protected static char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
+            'f'};
     protected static MessageDigest messagedigest = null;
+
     static {
         try {
             messagedigest = MessageDigest.getInstance("MD5");
@@ -69,6 +70,7 @@ public class MD5Util {
 
     /**
      * 密码字符串MD5加密 32位小写
+     *
      * @param str
      * @return
      */

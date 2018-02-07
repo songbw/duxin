@@ -12,17 +12,27 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface DealerMapper{
+public interface DealerMapper {
 
-        int add(Dealer entity) ;
+    int add(Dealer entity);
 
-        int update(Dealer entity) ;
+    int update(Dealer entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        Dealer selectById(Long id);
+    Dealer selectById(Long id);
 
-        List<Dealer> selectAllByPage(Map map) ;
+    List<Dealer> selectAllByPage(Map map);
 
-        int selectAllBySize(Map map);
+    int selectAllBySize(Map map);
+
+    Dealer selectByUsername(String username);
+
+    Dealer selectByMobile(String mobile);
+
+    int updateLocked(Dealer entity);
+
+    int updatePasswd(Dealer entity);
+
+    Dealer selectUserByToken(String token);
 }

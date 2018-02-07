@@ -4,24 +4,24 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Dealer">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="company_name" property="companyName" />
-        <result column="mobile" property="mobile" />
-        <result column="telephone" property="telephone" />
-        <result column="admin_id" property="adminId" />
-        <result column="province_code" property="provinceCode" />
-        <result column="city_code" property="cityCode" />
-        <result column="area_code" property="areaCode" />
-        <result column="address" property="address" />
-        <result column="role_id" property="roleId" />
-        <result column="locked" property="locked" />
-        <result column="email" property="email" />
-        <result column="invite_code" property="inviteCode" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="company_name" property="companyName"/>
+        <result column="mobile" property="mobile"/>
+        <result column="telephone" property="telephone"/>
+        <result column="admin_id" property="adminId"/>
+        <result column="province_code" property="provinceCode"/>
+        <result column="city_code" property="cityCode"/>
+        <result column="area_code" property="areaCode"/>
+        <result column="address" property="address"/>
+        <result column="role_id" property="roleId"/>
+        <result column="locked" property="locked"/>
+        <result column="email" property="email"/>
+        <result column="invite_code" property="inviteCode"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
     </resultMap>
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.Dealer" keyProperty="id">
@@ -80,37 +80,58 @@
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Dealer" keyProperty="id">
         update dealer set
-                                            <if test="name != null and name != '' ">
-                            name = #{name} ,                        </if>
-                                            <if test="username != null and username != '' ">
-                            username = #{username} ,                        </if>
-                                            <if test="password != null and password != '' ">
-                            password = #{password} ,                        </if>
-                                            <if test="companyName != null and companyName != '' ">
-                            company_name = #{companyName} ,                        </if>
-                                            <if test="mobile != null and mobile != '' ">
-                            mobile = #{mobile} ,                        </if>
-                                            <if test="telephone != null and telephone != '' ">
-                            telephone = #{telephone} ,                        </if>
-                                            <if test="adminId != null and adminId != '' ">
-                            admin_id = #{adminId} ,                        </if>
-                                            <if test="provinceCode != null and provinceCode != '' ">
-                            province_code = #{provinceCode} ,                        </if>
-                                            <if test="cityCode != null and cityCode != '' ">
-                            city_code = #{cityCode} ,                        </if>
-                                            <if test="areaCode != null and areaCode != '' ">
-                            area_code = #{areaCode} ,                        </if>
-                                            <if test="address != null and address != '' ">
-                            address = #{address} ,                        </if>
-                                            <if test="roleId != null and roleId != '' ">
-                            role_id = #{roleId} ,                        </if>
-                                            <if test="locked != null and locked != '' ">
-                            locked = #{locked} ,                        </if>
-                                            <if test="email != null and email != '' ">
-                            email = #{email} ,                        </if>
-                                            <if test="inviteCode != null and inviteCode != '' ">
-                            invite_code = #{inviteCode} ,                        </if>
-                                          updated_at = now()          where id = #{id}
+        <if test="name != null and name != '' ">
+            name = #{name} ,
+        </if>
+        <if test="username != null and username != '' ">
+            username = #{username} ,
+        </if>
+        <!--<if test="password != null and password != '' ">-->
+            <!--password = #{password} ,-->
+        <!--</if>-->
+        <if test="companyName != null and companyName != '' ">
+            company_name = #{companyName} ,
+        </if>
+        <if test="mobile != null and mobile != '' ">
+            mobile = #{mobile} ,
+        </if>
+        <if test="telephone != null and telephone != '' ">
+            telephone = #{telephone} ,
+        </if>
+        <if test="adminId != null and adminId != '' ">
+            admin_id = #{adminId} ,
+        </if>
+        <if test="provinceCode != null and provinceCode != '' ">
+            province_code = #{provinceCode} ,
+        </if>
+        <if test="cityCode != null and cityCode != '' ">
+            city_code = #{cityCode} ,
+        </if>
+        <if test="areaCode != null and areaCode != '' ">
+            area_code = #{areaCode} ,
+        </if>
+        <if test="address != null and address != '' ">
+            address = #{address} ,
+        </if>
+        <if test="roleId != null and roleId != '' ">
+            role_id = #{roleId} ,
+        </if>
+        <!--<if test="locked != null and locked != '' ">-->
+            <!--locked = #{locked} ,-->
+        <!--</if>-->
+        <if test="email != null and email != '' ">
+            email = #{email} ,
+        </if>
+        <!--<if test="inviteCode != null and inviteCode != '' ">-->
+            <!--invite_code = #{inviteCode} ,-->
+        <!--</if>-->
+        updated_at = now() where id = #{id}
+    </update>
+    <update id="updateLocked"  keyProperty="id" useGeneratedKeys="true" keyColumn="id">
+        update dealer set locked = #{locked} ,updated_at = now() where id = #{id}
+    </update>
+    <update id="updatePasswd"  keyProperty="id" useGeneratedKeys="true" keyColumn="id">
+        update dealer set password = #{password} ,updated_at = now() where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from dealer where id = #{id}
@@ -120,112 +141,121 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from dealer where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="username != null and username != '' ">
-                    AND username LIKE #{username}
-                </if>
-                <if test="password != null and password != '' ">
-                    AND password LIKE #{password}
-                </if>
-                <if test="companyName != null and companyName != '' ">
-                    AND company_name LIKE #{companyName}
-                </if>
-                <if test="mobile != null and mobile != '' ">
-                    AND mobile LIKE #{mobile}
-                </if>
-                <if test="telephone != null and telephone != '' ">
-                    AND telephone LIKE #{telephone}
-                </if>
-                <if test="adminId != null and adminId != '' ">
-                    AND admin_id LIKE #{adminId}
-                </if>
-                <if test="provinceCode != null and provinceCode != '' ">
-                    AND province_code LIKE #{provinceCode}
-                </if>
-                <if test="cityCode != null and cityCode != '' ">
-                    AND city_code LIKE #{cityCode}
-                </if>
-                <if test="areaCode != null and areaCode != '' ">
-                    AND area_code LIKE #{areaCode}
-                </if>
-                <if test="address != null and address != '' ">
-                    AND address LIKE #{address}
-                </if>
-                <if test="roleId != null and roleId != '' ">
-                    AND role_id LIKE #{roleId}
-                </if>
-                <if test="locked != null and locked != '' ">
-                    AND locked LIKE #{locked}
-                </if>
-                <if test="email != null and email != '' ">
-                    AND email LIKE #{email}
-                </if>
-                <if test="inviteCode != null and inviteCode != '' ">
-                    AND invite_code LIKE #{inviteCode}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="username != null and username != '' ">
+            AND username LIKE #{username}
+        </if>
+        <if test="password != null and password != '' ">
+            AND password LIKE #{password}
+        </if>
+        <if test="companyName != null and companyName != '' ">
+            AND company_name LIKE #{companyName}
+        </if>
+        <if test="mobile != null and mobile != '' ">
+            AND mobile LIKE #{mobile}
+        </if>
+        <if test="telephone != null and telephone != '' ">
+            AND telephone LIKE #{telephone}
+        </if>
+        <if test="adminId != null and adminId != '' ">
+            AND admin_id LIKE #{adminId}
+        </if>
+        <if test="provinceCode != null and provinceCode != '' ">
+            AND province_code LIKE #{provinceCode}
+        </if>
+        <if test="cityCode != null and cityCode != '' ">
+            AND city_code LIKE #{cityCode}
+        </if>
+        <if test="areaCode != null and areaCode != '' ">
+            AND area_code LIKE #{areaCode}
+        </if>
+        <if test="address != null and address != '' ">
+            AND address LIKE #{address}
+        </if>
+        <if test="roleId != null and roleId != '' ">
+            AND role_id LIKE #{roleId}
+        </if>
+        <if test="locked != null and locked != '' ">
+            AND locked LIKE #{locked}
+        </if>
+        <if test="email != null and email != '' ">
+            AND email LIKE #{email}
+        </if>
+        <if test="inviteCode != null and inviteCode != '' ">
+            AND invite_code LIKE #{inviteCode}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from dealer where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="username != null and username != '' ">
-                    AND username LIKE #{username}
-                </if>
-                <if test="password != null and password != '' ">
-                    AND password LIKE #{password}
-                </if>
-                <if test="companyName != null and companyName != '' ">
-                    AND company_name LIKE #{companyName}
-                </if>
-                <if test="mobile != null and mobile != '' ">
-                    AND mobile LIKE #{mobile}
-                </if>
-                <if test="telephone != null and telephone != '' ">
-                    AND telephone LIKE #{telephone}
-                </if>
-                <if test="adminId != null and adminId != '' ">
-                    AND admin_id LIKE #{adminId}
-                </if>
-                <if test="provinceCode != null and provinceCode != '' ">
-                    AND province_code LIKE #{provinceCode}
-                </if>
-                <if test="cityCode != null and cityCode != '' ">
-                    AND city_code LIKE #{cityCode}
-                </if>
-                <if test="areaCode != null and areaCode != '' ">
-                    AND area_code LIKE #{areaCode}
-                </if>
-                <if test="address != null and address != '' ">
-                    AND address LIKE #{address}
-                </if>
-                <if test="roleId != null and roleId != '' ">
-                    AND role_id LIKE #{roleId}
-                </if>
-                <if test="locked != null and locked != '' ">
-                    AND locked LIKE #{locked}
-                </if>
-                <if test="email != null and email != '' ">
-                    AND email LIKE #{email}
-                </if>
-                <if test="inviteCode != null and inviteCode != '' ">
-                    AND invite_code LIKE #{inviteCode}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="username != null and username != '' ">
+            AND username LIKE #{username}
+        </if>
+        <if test="password != null and password != '' ">
+            AND password LIKE #{password}
+        </if>
+        <if test="companyName != null and companyName != '' ">
+            AND company_name LIKE #{companyName}
+        </if>
+        <if test="mobile != null and mobile != '' ">
+            AND mobile LIKE #{mobile}
+        </if>
+        <if test="telephone != null and telephone != '' ">
+            AND telephone LIKE #{telephone}
+        </if>
+        <if test="adminId != null and adminId != '' ">
+            AND admin_id LIKE #{adminId}
+        </if>
+        <if test="provinceCode != null and provinceCode != '' ">
+            AND province_code LIKE #{provinceCode}
+        </if>
+        <if test="cityCode != null and cityCode != '' ">
+            AND city_code LIKE #{cityCode}
+        </if>
+        <if test="areaCode != null and areaCode != '' ">
+            AND area_code LIKE #{areaCode}
+        </if>
+        <if test="address != null and address != '' ">
+            AND address LIKE #{address}
+        </if>
+        <if test="roleId != null and roleId != '' ">
+            AND role_id LIKE #{roleId}
+        </if>
+        <if test="locked != null and locked != '' ">
+            AND locked LIKE #{locked}
+        </if>
+        <if test="email != null and email != '' ">
+            AND email LIKE #{email}
+        </if>
+        <if test="inviteCode != null and inviteCode != '' ">
+            AND invite_code LIKE #{inviteCode}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
+    </select>
+    <select id="selectByUsername" resultMap="BaseResultMap">
+        select * from dealer where username = #{username}
+    </select>
+    <select id="selectUserByToken" resultMap="BaseResultMap">
+        select u.* FROM dealer u,user_token ut where u.id = ut.user_id and access_token = #{token} and ut.user_type = 2
+    </select>
+    <select id="selectByMobile" resultMap="BaseResultMap">
+        select * from dealer where mobile = #{mobile}
     </select>
 
 </mapper>

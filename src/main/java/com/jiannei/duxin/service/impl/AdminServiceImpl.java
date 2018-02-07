@@ -1,7 +1,7 @@
 package com.jiannei.duxin.service.impl;
 
 import com.jiannei.duxin.dao.UserTokenMapper;
-import com.jiannei.duxin.dto.SystemStatus;
+import com.jiannei.duxin.dto.*;
 import com.jiannei.duxin.entity.Admin;
 import com.jiannei.duxin.dao.AdminMapper;
 import com.jiannei.duxin.entity.UserToken;
@@ -11,14 +11,11 @@ import com.jiannei.duxin.utils.MD5Util;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.BeanUtils;
-import com.jiannei.duxin.dto.ResultBean;
 import com.jiannei.duxin.query.AdminQueryBean;
-import com.jiannei.duxin.dto.AdminDTO;
 
 import java.util.*;
 
 import org.springframework.util.StringUtils;
-import com.jiannei.duxin.dto.PageBean;
 
 import java.util.List;
 
@@ -217,13 +214,13 @@ public class AdminServiceImpl implements IAdminService {
                     userToken.setRefreshToken(refreshToken);
                     userToken.setExpired(expired);
                     userToken.setUserId(entity.getId());
-                    userToken.setUserType(1);
+                    userToken.setUserType(UserTypeEnum.ADMIN.getValue());
                     userTokenMapper.add(userToken) ;
                 }
                 resultBean.setSucResult(userToken);
             }
         } else {
-            resultBean.setFailMsg(200103,"用户名或密码错误");
+            resultBean.setFailMsg(SystemStatus.USERNAME_PASSWORD_IS_ERROR);
         }
         return resultBean;
     }
@@ -231,7 +228,10 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public ResultBean logout(String refreshToken) throws Exception {
         ResultBean resultBean = new ResultBean();
-        int id = userTokenMapper.deleteByRefreshToken(refreshToken) ;
+        UserToken userToken = new UserToken();
+        userToken.setRefreshToken(refreshToken);
+        userToken.setUserType(UserTypeEnum.ADMIN.getValue());
+        int id = userTokenMapper.deleteByRefreshToken(userToken) ;
         resultBean.setSucResult(id);
         return resultBean;
     }

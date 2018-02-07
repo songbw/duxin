@@ -20,7 +20,7 @@ public interface UserTokenMapper{
 
         int delete(int id);
 
-        int deleteByRefreshToken(String refreshToken);
+        int deleteByRefreshToken(UserToken entity);
 
         UserToken selectById(Long id);
 

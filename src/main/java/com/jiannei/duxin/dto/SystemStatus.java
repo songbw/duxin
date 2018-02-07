@@ -19,6 +19,7 @@ public enum SystemStatus {
     PARENT_NO_EXIST(50008, "父节点不存在"),
     ID_IS_NULL(50009, "用户ID不能为空"),
     USER_NO_EXIST(50010, "用户不存在为空"),
+    MOBILE_EXIST(50006, "手机号重复"),
     UUIMS_ERROR(60001, "请求认证服务器出错"),
     ID_NOT_FOUND(400001, "请求参数不匹配"),
     TOKEN_TIME_OUT(600002, "登录过期,请重新登录"),

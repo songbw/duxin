@@ -204,13 +204,13 @@ public class AdminController {
     public ResultBean profile(String token) {
         ResultBean resultBean = new ResultBean();
         try {
-            resultBean = service.getUserByToken(token) ;
+            resultBean = service.getUserByToken(token);
         } catch (Exception e) {
             log.error(e.getMessage());
             resultBean.setFailMsg(SystemStatus.SERVER_ERROR);
-            return resultBean ;
+            return resultBean;
         }
-        return resultBean ;
+        return resultBean;
     }
 
 }

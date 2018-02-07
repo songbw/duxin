@@ -7,13 +7,14 @@ package com.jiannei.duxin.utils;
  * Time: 下午4:37
  */
 public class HexUtil {
-    private static final char[] DIGITS_LOWER = { '0', '1', '2', '3', '4', '5',
-            '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-    private static final char[] DIGITS_UPPER = { '0', '1', '2', '3', '4', '5',
-            '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+    private static final char[] DIGITS_LOWER = {'0', '1', '2', '3', '4', '5',
+            '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] DIGITS_UPPER = {'0', '1', '2', '3', '4', '5',
+            '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
      * 16进制转byte数组
+     *
      * @param data 16进制字符串
      * @return byte数组
      * @throws Exception 转化失败的异常
@@ -40,6 +41,7 @@ public class HexUtil {
 
     /**
      * bytes数组转16进制String
+     *
      * @param data bytes数组
      * @return 转化结果
      */
@@ -49,7 +51,8 @@ public class HexUtil {
 
     /**
      * bytes数组转16进制String
-     * @param data bytes数组
+     *
+     * @param data        bytes数组
      * @param toLowerCase 是否小写
      * @return 转化结果
      */
@@ -60,7 +63,8 @@ public class HexUtil {
 
     /**
      * bytes数组转16进制String
-     * @param data bytes数组
+     *
+     * @param data     bytes数组
      * @param toDigits DIGITS_LOWER或DIGITS_UPPER
      * @return 转化结果
      */
@@ -74,9 +78,11 @@ public class HexUtil {
         }
         return new String(out);
     }
+
     /**
      * 16转化为数字
-     * @param ch 16进制
+     *
+     * @param ch    16进制
      * @param index 索引
      * @return 转化结果
      * @throws Exception 转化失败异常

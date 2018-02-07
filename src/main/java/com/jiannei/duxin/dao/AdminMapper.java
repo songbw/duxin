@@ -1,6 +1,7 @@
 package com.jiannei.duxin.dao;
 
 import com.jiannei.duxin.entity.Admin;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,25 +13,25 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface AdminMapper{
+public interface AdminMapper {
 
-        int add(Admin entity) ;
+    int add(Admin entity);
 
-        int update(Admin entity) ;
+    int update(Admin entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        Admin selectById(Long id);
+    Admin selectById(Long id);
 
-        List<Admin> selectAllByPage(Map map) ;
+    List<Admin> selectAllByPage(Map map);
 
-        int selectAllBySize(Map map);
+    int selectAllBySize(Map map);
 
-        Admin selectByUsername(String username) ;
+    Admin selectByUsername(String username);
 
-        int updateLocked(Admin entity) ;
+    int updateLocked(Admin entity);
 
-        int updatePasswd(Admin entity) ;
+    int updatePasswd(Admin entity);
 
-        Admin selectUserByToken(String token) ;
+    Admin selectUserByToken(String token);
 }

@@ -55,8 +55,8 @@
     <delete id="delete" parameterType="int">
         delete from user_token where id = #{id}
     </delete>
-    <delete id="deleteByRefreshToken" parameterType="string">
-        delete from user_token where refresh_token = #{refreshToken}
+    <delete id="deleteByRefreshToken" parameterType="com.jiannei.duxin.entity.UserToken">
+        delete from user_token where refresh_token = #{refreshToken} and user_type = #{userType}
     </delete>
     <select id="selectById" resultMap="BaseResultMap">
         select * from user_token where id = #{id}
