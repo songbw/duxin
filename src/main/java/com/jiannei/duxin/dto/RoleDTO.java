@@ -3,6 +3,7 @@ package com.jiannei.duxin.dto;
 import java.io.Serializable;
 import java.util.Date;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * <p>
@@ -44,6 +45,8 @@ public class RoleDTO implements Serializable {
      */
 
     private Date updatedAt;
+
+    private List<RoleResourceDTO> roleResourceDTOS;
 
 
     public Long getId() {
@@ -92,5 +95,13 @@ public class RoleDTO implements Serializable {
 
     public void setAdminId(Long adminId) {
         this.adminId = adminId;
+    }
+
+    public List<RoleResourceDTO> getRoleResourceDTOS() {
+        return roleResourceDTOS;
+    }
+
+    public void setRoleResourceDTOS(List<RoleResourceDTO> roleResourceDTOS) {
+        this.roleResourceDTOS = roleResourceDTOS;
     }
 }

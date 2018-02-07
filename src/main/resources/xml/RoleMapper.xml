@@ -12,7 +12,8 @@
         <result column="updated_at" property="updatedAt"/>
     </resultMap>
 
-    <insert id="add" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id">
+    <insert id="add" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id" useGeneratedKeys="true"
+            keyColumn="id">
         insert into role(
                 name                   ,
                 remark                   ,
@@ -27,7 +28,8 @@
                                  now(),#{adminId}
             )
     </insert>
-    <update id="update" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id">
+    <update id="update" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id" useGeneratedKeys="true"
+            keyColumn="id">
         update role set
         <if test="name != null and name != '' ">
             name = #{name} ,
@@ -79,6 +81,9 @@
         <if test="updatedAt != null and updatedAt != '' ">
             AND updated_at LIKE #{updatedAt}
         </if>
+    </select>
+    <select id="selectByName" resultMap="BaseResultMap">
+        select * from role where name = #{name} and admin_id = #{adminId}
     </select>
 
 </mapper>

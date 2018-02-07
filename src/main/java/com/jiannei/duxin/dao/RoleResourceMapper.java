@@ -20,6 +20,8 @@ public interface RoleResourceMapper{
 
         int delete(int id);
 
+        int deleteByRoleId(Long roleId);
+
         RoleResource selectById(Long id);
 
         List<RoleResource> selectAllByPage(Map map) ;
