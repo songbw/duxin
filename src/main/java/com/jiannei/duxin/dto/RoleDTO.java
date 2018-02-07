@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 角色表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -31,6 +32,8 @@ public class RoleDTO implements Serializable {
      */
 
     private String remark;
+
+    private Long adminId;
     /**
      * 创建时间
      */
@@ -83,4 +86,11 @@ public class RoleDTO implements Serializable {
         this.updatedAt = updatedAt;
     }
 
+    public Long getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
+    }
 }

@@ -18,9 +18,13 @@ public interface ResourceMapper{
 
         int update(Resource entity) ;
 
+        int updateAvailable(Resource entity) ;
+
         int delete(int id);
 
         Resource selectById(Long id);
+
+        Resource selectByName(String name);
 
         List<Resource> selectAllByPage(Map map) ;
 

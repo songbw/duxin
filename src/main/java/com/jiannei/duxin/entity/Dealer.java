@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * dealer表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -70,7 +71,7 @@ public class Dealer implements Serializable {
     /**
      * 激活/冻结 （0：激活，1：冻结）
      */
-    private Integer locked;
+    private Integer locked = 0;
     /**
      * 邮箱
      */
@@ -236,24 +237,24 @@ public class Dealer implements Serializable {
     @Override
     public String toString() {
         return "Dealer{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", username=" + username +
-        ", password=" + password +
-        ", companyName=" + companyName +
-        ", mobile=" + mobile +
-        ", telephone=" + telephone +
-        ", adminId=" + adminId +
-        ", provinceCode=" + provinceCode +
-        ", cityCode=" + cityCode +
-        ", areaCode=" + areaCode +
-        ", address=" + address +
-        ", roleId=" + roleId +
-        ", locked=" + locked +
-        ", email=" + email +
-        ", inviteCode=" + inviteCode +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", username=" + username +
+                ", password=" + password +
+                ", companyName=" + companyName +
+                ", mobile=" + mobile +
+                ", telephone=" + telephone +
+                ", adminId=" + adminId +
+                ", provinceCode=" + provinceCode +
+                ", cityCode=" + cityCode +
+                ", areaCode=" + areaCode +
+                ", address=" + address +
+                ", roleId=" + roleId +
+                ", locked=" + locked +
+                ", email=" + email +
+                ", inviteCode=" + inviteCode +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

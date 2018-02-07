@@ -19,7 +19,10 @@ public enum SystemStatus {
     PARENT_NO_EXIST(50008, "父节点不存在"),
     ID_IS_NULL(50009, "用户ID不能为空"),
     USER_NO_EXIST(50010, "用户不存在为空"),
-    MOBILE_EXIST(50006, "手机号重复"),
+    MOBILE_EXIST(50011, "手机号重复"),
+    NAME_EXIST(50012, "命名重复"),
+    NAME_NO_EXIST(50013, "命名不存在"),
+    RESOURCE_NO_EXIST(50014, "资源不存在"),
     UUIMS_ERROR(60001, "请求认证服务器出错"),
     ID_NOT_FOUND(400001, "请求参数不匹配"),
     TOKEN_TIME_OUT(600002, "登录过期,请重新登录"),
@@ -27,11 +30,12 @@ public enum SystemStatus {
     MCU_IS_EXIT(700004, "MCU已经存在，请修改后重新上传"),
     MCU_NO_INSERT(700005, "MCU原版本不能相同，请修改后重新上传"),
     MCU_NO_DEST(700006, "MCU目标版本不能相同，请修改后重新上传"),
-    DICT_NO_INSERT(80001,"字典类型key不能相同，请修改后重新提交"),
-    DICT_NO_DELETE(80002,"该字典被引用，请修改后重新提交"),
-    MENU_NO_INSERT(80003,"菜单类型key不能相同，请修改后重新提交"),
-    MENU_NO_DELETE(80004,"该菜单被引用，请修改后重新提交"),
-    MENU_NO_PARENT_DELETE(80005,"该菜单下有子菜单，请修改后重新提交");
+    DICT_NO_INSERT(80001, "字典类型key不能相同，请修改后重新提交"),
+    DICT_NO_DELETE(80002, "该字典被引用，请修改后重新提交"),
+    MENU_NO_INSERT(80003, "菜单类型key不能相同，请修改后重新提交"),
+    MENU_NO_DELETE(80004, "该菜单被引用，请修改后重新提交"),
+    MENU_NO_PARENT_DELETE(80005, "该菜单下有子菜单，请修改后重新提交");
+
     SystemStatus(int status, String str) {
         setCode(status);
         setStr(str);

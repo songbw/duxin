@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * dealer表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -85,7 +86,7 @@ public class DealerDTO implements Serializable {
      * 激活/冻结 （0：激活，1：冻结）
      */
 
-    private Integer locked;
+    private Integer locked = 0;
     /**
      * 邮箱
      */

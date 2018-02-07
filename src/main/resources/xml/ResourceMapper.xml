@@ -4,20 +4,21 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Resource">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="type" property="type" />
-        <result column="url" property="url" />
-        <result column="priority" property="priority" />
-        <result column="parent_id" property="parentId" />
-        <result column="parent_ids" property="parentIds" />
-        <result column="permission" property="permission" />
-        <result column="available" property="available" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+        <result column="url" property="url"/>
+        <result column="priority" property="priority"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="parent_ids" property="parentIds"/>
+        <result column="permission" property="permission"/>
+        <result column="available" property="available"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
     </resultMap>
 
-    <insert id="add" parameterType="com.jiannei.duxin.entity.Resource" keyProperty="id">
+    <insert id="add" parameterType="com.jiannei.duxin.entity.Resource" keyProperty="id"
+            useGeneratedKeys="true" keyColumn="id">
         insert into resource(
                 name                   ,
                 type                   ,
@@ -50,25 +51,38 @@
                                  now()
             )
     </insert>
-    <update id="update" parameterType="com.jiannei.duxin.entity.Resource" keyProperty="id">
+    <update id="update" parameterType="com.jiannei.duxin.entity.Resource" keyProperty="id"
+            useGeneratedKeys="true" keyColumn="id">
         update resource set
-                                            <if test="name != null and name != '' ">
-                            name = #{name} ,                        </if>
-                                            <if test="type != null and type != '' ">
-                            type = #{type} ,                        </if>
-                                            <if test="url != null and url != '' ">
-                            url = #{url} ,                        </if>
-                                            <if test="priority != null and priority != '' ">
-                            priority = #{priority} ,                        </if>
-                                            <if test="parentId != null and parentId != '' ">
-                            parent_id = #{parentId} ,                        </if>
-                                            <if test="parentIds != null and parentIds != '' ">
-                            parent_ids = #{parentIds} ,                        </if>
-                                            <if test="permission != null and permission != '' ">
-                            permission = #{permission} ,                        </if>
-                                            <if test="available != null and available != '' ">
-                            available = #{available} ,                        </if>
-                                          updated_at = now()          where id = #{id}
+        <if test="name != null and name != '' ">
+            name = #{name} ,
+        </if>
+        <if test="type != null and type != '' ">
+            type = #{type} ,
+        </if>
+        <if test="url != null and url != '' ">
+            url = #{url} ,
+        </if>
+        <if test="priority != null and priority != '' ">
+            priority = #{priority} ,
+        </if>
+        <if test="parentId != null and parentId != '' ">
+            parent_id = #{parentId} ,
+        </if>
+        <if test="parentIds != null and parentIds != '' ">
+            parent_ids = #{parentIds} ,
+        </if>
+        <if test="permission != null and permission != '' ">
+            permission = #{permission} ,
+        </if>
+        <if test="available != null and available != '' ">
+            available = #{available} ,
+        </if>
+        updated_at = now() where id = #{id}
+    </update>
+    <update id="updateAvailable" parameterType="com.jiannei.duxin.entity.Resource" keyProperty="id"
+            useGeneratedKeys="true" keyColumn="id">
+        update resource set available = #{available} ,updated_at = now() where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from resource where id = #{id}
@@ -78,70 +92,73 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from resource where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="type != null and type != '' ">
-                    AND type LIKE #{type}
-                </if>
-                <if test="url != null and url != '' ">
-                    AND url LIKE #{url}
-                </if>
-                <if test="priority != null and priority != '' ">
-                    AND priority LIKE #{priority}
-                </if>
-                <if test="parentId != null and parentId != '' ">
-                    AND parent_id LIKE #{parentId}
-                </if>
-                <if test="parentIds != null and parentIds != '' ">
-                    AND parent_ids LIKE #{parentIds}
-                </if>
-                <if test="permission != null and permission != '' ">
-                    AND permission LIKE #{permission}
-                </if>
-                <if test="available != null and available != '' ">
-                    AND available LIKE #{available}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="type != null and type != '' ">
+            AND type LIKE #{type}
+        </if>
+        <if test="url != null and url != '' ">
+            AND url LIKE #{url}
+        </if>
+        <if test="priority != null and priority != '' ">
+            AND priority LIKE #{priority}
+        </if>
+        <if test="parentId != null and parentId != '' ">
+            AND parent_id LIKE #{parentId}
+        </if>
+        <if test="parentIds != null and parentIds != '' ">
+            AND parent_ids LIKE #{parentIds}
+        </if>
+        <if test="permission != null and permission != '' ">
+            AND permission LIKE #{permission}
+        </if>
+        <if test="available != null and available != '' ">
+            AND available LIKE #{available}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from resource where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="type != null and type != '' ">
-                    AND type LIKE #{type}
-                </if>
-                <if test="url != null and url != '' ">
-                    AND url LIKE #{url}
-                </if>
-                <if test="priority != null and priority != '' ">
-                    AND priority LIKE #{priority}
-                </if>
-                <if test="parentId != null and parentId != '' ">
-                    AND parent_id LIKE #{parentId}
-                </if>
-                <if test="parentIds != null and parentIds != '' ">
-                    AND parent_ids LIKE #{parentIds}
-                </if>
-                <if test="permission != null and permission != '' ">
-                    AND permission LIKE #{permission}
-                </if>
-                <if test="available != null and available != '' ">
-                    AND available LIKE #{available}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="type != null and type != '' ">
+            AND type LIKE #{type}
+        </if>
+        <if test="url != null and url != '' ">
+            AND url LIKE #{url}
+        </if>
+        <if test="priority != null and priority != '' ">
+            AND priority LIKE #{priority}
+        </if>
+        <if test="parentId != null and parentId != '' ">
+            AND parent_id LIKE #{parentId}
+        </if>
+        <if test="parentIds != null and parentIds != '' ">
+            AND parent_ids LIKE #{parentIds}
+        </if>
+        <if test="permission != null and permission != '' ">
+            AND permission LIKE #{permission}
+        </if>
+        <if test="available != null and available != '' ">
+            AND available LIKE #{available}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
+    </select>
+    <select id="selectByName" resultMap="BaseResultMap">
+        select * from resource where name = #{name}
     </select>
 
 </mapper>

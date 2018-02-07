@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 资源表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -42,12 +43,12 @@ public class ResourceDTO implements Serializable {
      * 父ID
      */
 
-    private Long parentId;
+    private Long parentId = 0l;
     /**
      * 父ID列表
      */
 
-    private String parentIds;
+    private String parentIds = "0,";
     /**
      * 权限字符串
      */
@@ -57,7 +58,7 @@ public class ResourceDTO implements Serializable {
      * 是否可用（0：可用，1：不可以）
      */
 
-    private Integer available;
+    private Integer available = 0;
     /**
      * 创建时间
      */

@@ -17,6 +17,8 @@ public interface IResourceService {
 
         ResultBean update(ResourceDTO dto) throws Exception;
 
+        ResultBean updateAvailable(ResourceDTO dto) throws Exception;
+
         ResultBean delete(int id) throws Exception;
 
         ResultBean listByPage(ResourceQueryBean queryBean) throws Exception;

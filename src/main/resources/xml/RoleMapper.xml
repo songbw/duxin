@@ -4,11 +4,12 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Role">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="remark" property="remark" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="remark" property="remark"/>
+        <result column="admin_id" property="adminId"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
     </resultMap>
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id">
@@ -16,23 +17,25 @@
                 name                   ,
                 remark                   ,
                 created_at                   ,
-                updated_at             ) values(
+                updated_at,admin_id             ) values(
                                  #{name}
                  ,
                                  #{remark}
                  ,
                                  now()
                  ,
-                                 now()
+                                 now(),#{adminId}
             )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id">
         update role set
-                                            <if test="name != null and name != '' ">
-                            name = #{name} ,                        </if>
-                                            <if test="remark != null and remark != '' ">
-                            remark = #{remark} ,                        </if>
-                                          updated_at = now()          where id = #{id}
+        <if test="name != null and name != '' ">
+            name = #{name} ,
+        </if>
+        <if test="remark != null and remark != '' ">
+            remark = #{remark} ,
+        </if>
+        updated_at = now() where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from role where id = #{id}
@@ -42,34 +45,40 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from role where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="adminId != null and adminId != '' ">
+            AND admin_id LIKE #{adminId}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from role where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="adminId != null and adminId != '' ">
+            AND admin_id LIKE #{adminId}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
     </select>
 
 </mapper>
