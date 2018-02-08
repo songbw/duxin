@@ -26,4 +26,12 @@ public interface WorkerMapper {
     List<Worker> selectAllByPage(Map map);
 
     int selectAllBySize(Map map);
+
+    Worker selectByUsername(String username);
+
+    int updateLocked(Worker entity);
+
+    int updatePasswd(Worker entity);
+
+    Worker selectUserByToken(String token);
 }

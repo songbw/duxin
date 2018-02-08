@@ -18,10 +18,20 @@ public interface IWorkerService {
 
     ResultBean update(WorkerDTO dto) throws Exception;
 
+    ResultBean updateLocked(WorkerDTO dto) throws Exception;
+
+    ResultBean updatePasswd(WorkerDTO dto) throws Exception;
+
     ResultBean delete(int id) throws Exception;
 
     ResultBean listByPage(WorkerQueryBean queryBean) throws Exception;
 
     ResultBean get(int id) throws Exception;
+
+    ResultBean login(WorkerDTO dto) throws Exception;
+
+    ResultBean logout(String refreshToken) throws Exception;
+
+    ResultBean getUserByToken(String token) throws Exception;
 
 }

@@ -18,10 +18,18 @@ public interface ICustomerService {
 
     ResultBean update(CustomerDTO dto) throws Exception;
 
+    ResultBean updatePasswd(CustomerDTO dto) throws Exception;
+
     ResultBean delete(int id) throws Exception;
 
     ResultBean listByPage(CustomerQueryBean queryBean) throws Exception;
 
     ResultBean get(int id) throws Exception;
+
+    ResultBean login(CustomerDTO dto) throws Exception;
+
+    ResultBean logout(String refreshToken) throws Exception;
+
+    ResultBean getUserByToken(String token) throws Exception;
 
 }

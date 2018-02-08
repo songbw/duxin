@@ -26,4 +26,10 @@ public interface CustomerMapper {
     List<Customer> selectAllByPage(Map map);
 
     int selectAllBySize(Map map);
+
+    int updatePasswd(Customer entity);
+
+    Customer selectUserByToken(String token);
+
+    Customer selectByMobile(String mobile);
 }

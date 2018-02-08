@@ -1,19 +1,21 @@
 package com.jiannei.duxin.service.impl;
 
+import com.jiannei.duxin.dao.UserTokenMapper;
+import com.jiannei.duxin.dto.*;
 import com.jiannei.duxin.entity.Customer;
 import com.jiannei.duxin.dao.CustomerMapper;
+import com.jiannei.duxin.entity.UserToken;
 import com.jiannei.duxin.service.ICustomerService;
+import com.jiannei.duxin.utils.DateUtils;
+import com.jiannei.duxin.utils.MD5Util;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.BeanUtils;
-import com.jiannei.duxin.dto.ResultBean;
 import com.jiannei.duxin.query.CustomerQueryBean;
-import com.jiannei.duxin.dto.CustomerDTO;
 
 import java.util.*;
 
 import org.springframework.util.StringUtils;
-import com.jiannei.duxin.dto.PageBean;
 
 import java.util.List;
 
@@ -30,6 +32,9 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Autowired
     private CustomerMapper mapper;
+
+    @Autowired
+    private UserTokenMapper userTokenMapper;
 
     @Override
     public ResultBean insert(CustomerDTO dto) throws Exception {
@@ -49,6 +54,22 @@ public class CustomerServiceImpl implements ICustomerService {
             BeanUtils.copyProperties(dto, entity);
             int id = mapper.update(entity);
             resultBean.setSucResult(id);
+        }
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean updatePasswd(CustomerDTO dto) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        Customer entity = mapper.selectById(dto.getId());
+        if (entity == null) {
+            resultBean.setFailMsg(SystemStatus.USER_NO_EXIST);
+            return resultBean;
+        }
+        if (entity.getPassword() != dto.getPassword()) {
+            entity.setPassword(dto.getPassword());
+            mapper.updatePasswd(entity);
+            resultBean.setSucResult(entity.getId());
         }
         return resultBean;
     }
@@ -117,6 +138,55 @@ public class CustomerServiceImpl implements ICustomerService {
     public ResultBean get(int id) throws Exception {
         ResultBean resultBean = new ResultBean();
         Customer entity = mapper.selectById((long) id);
+        resultBean.setSucResult(entity);
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean login(CustomerDTO dto) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        Customer entity = mapper.selectByMobile(dto.getMobile());
+        if (entity != null) {
+            if (entity.getPassword().equals(dto.getPassword())) {
+                UserToken userToken = new UserToken();
+                userToken.setUserId(entity.getId());
+                userToken.setUserType(1);
+                userToken = userTokenMapper.selectByUserId(userToken);
+                if (userToken == null) {
+                    userToken = new UserToken();
+                    String refreshToken = UUID.randomUUID().toString();
+                    long expired = DateUtils.addNDay(30);
+                    String accessToken = MD5Util.getStringMD5(refreshToken + expired);
+                    userToken.setAccessToken(accessToken);
+                    userToken.setRefreshToken(refreshToken);
+                    userToken.setExpired(expired);
+                    userToken.setUserId(entity.getId());
+                    userToken.setUserType(UserTypeEnum.CUSTOMER.getValue());
+                    userTokenMapper.add(userToken);
+                }
+                resultBean.setSucResult(userToken);
+            }
+        } else {
+            resultBean.setFailMsg(SystemStatus.USERNAME_PASSWORD_IS_ERROR);
+        }
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean logout(String refreshToken) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        UserToken userToken = new UserToken();
+        userToken.setRefreshToken(refreshToken);
+        userToken.setUserType(UserTypeEnum.CUSTOMER.getValue());
+        int id = userTokenMapper.deleteByRefreshToken(userToken);
+        resultBean.setSucResult(id);
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean getUserByToken(String token) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        Customer entity = mapper.selectUserByToken(token);
         resultBean.setSucResult(entity);
         return resultBean;
     }

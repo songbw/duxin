@@ -92,6 +92,14 @@
         </if>
         updated_at = now() where id = #{id}
     </update>
+    <update id="updateLocked"  parameterType="com.jiannei.duxin.entity.Worker" keyProperty="id" useGeneratedKeys="true"
+            keyColumn="id">
+        update worker set locked = #{locked} ,updated_at = now() where id = #{id}
+    </update>
+    <update id="updatePasswd"  parameterType="com.jiannei.duxin.entity.Worker" keyProperty="id" useGeneratedKeys="true"
+            keyColumn="id">
+        update worker set password = #{password} ,updated_at = now() where id = #{id}
+    </update>
     <delete id="delete" parameterType="int">
         delete from worker where id = #{id}
     </delete>
@@ -176,6 +184,12 @@
         <if test="updatedAt != null and updatedAt != '' ">
             AND updated_at LIKE #{updatedAt}
         </if>
+    </select>
+    <select id="selectByUsername" resultMap="BaseResultMap">
+        select * from worker where username = #{username}
+    </select>
+    <select id="selectUserByToken"  resultMap="BaseResultMap">
+        select u.* FROM worker u,user_token ut where u.id = ut.user_id and access_token = #{token} and ut.user_type = 3
     </select>
 
 </mapper>

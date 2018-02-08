@@ -1,7 +1,7 @@
 package com.jiannei.duxin.dto;
 
 public enum UserTypeEnum {
-    ADMIN(1), DEALER(2), CUSTOMER(3);
+    ADMIN(1), DEALER(2), WORKER(3),CUSTOMER(4);
 
     private Integer value;
 

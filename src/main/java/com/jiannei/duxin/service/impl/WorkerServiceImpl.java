@@ -1,19 +1,21 @@
 package com.jiannei.duxin.service.impl;
 
+import com.jiannei.duxin.dao.UserTokenMapper;
+import com.jiannei.duxin.dto.*;
+import com.jiannei.duxin.entity.UserToken;
 import com.jiannei.duxin.entity.Worker;
 import com.jiannei.duxin.dao.WorkerMapper;
 import com.jiannei.duxin.service.IWorkerService;
+import com.jiannei.duxin.utils.DateUtils;
+import com.jiannei.duxin.utils.MD5Util;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.BeanUtils;
-import com.jiannei.duxin.dto.ResultBean;
 import com.jiannei.duxin.query.WorkerQueryBean;
-import com.jiannei.duxin.dto.WorkerDTO;
 
 import java.util.*;
 
 import org.springframework.util.StringUtils;
-import com.jiannei.duxin.dto.PageBean;
 
 import java.util.List;
 
@@ -30,6 +32,9 @@ public class WorkerServiceImpl implements IWorkerService {
 
     @Autowired
     private WorkerMapper mapper;
+
+    @Autowired
+    private UserTokenMapper userTokenMapper;
 
     @Override
     public ResultBean insert(WorkerDTO dto) throws Exception {
@@ -49,6 +54,38 @@ public class WorkerServiceImpl implements IWorkerService {
             BeanUtils.copyProperties(dto, entity);
             int id = mapper.update(entity);
             resultBean.setSucResult(id);
+        }
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean updateLocked(WorkerDTO dto) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        Worker entity = mapper.selectById(dto.getId());
+        if (entity == null) {
+            resultBean.setFailMsg(SystemStatus.USER_NO_EXIST);
+            return resultBean;
+        }
+        if (entity.getLocked() != dto.getLocked()) {
+            entity.setLocked(dto.getLocked());
+            mapper.updateLocked(entity);
+            resultBean.setSucResult(entity.getId());
+        }
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean updatePasswd(WorkerDTO dto) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        Worker entity = mapper.selectById(dto.getId());
+        if (entity == null) {
+            resultBean.setFailMsg(SystemStatus.USER_NO_EXIST);
+            return resultBean;
+        }
+        if (entity.getPassword() != dto.getPassword()) {
+            entity.setPassword(dto.getPassword());
+            mapper.updatePasswd(entity);
+            resultBean.setSucResult(entity.getId());
         }
         return resultBean;
     }
@@ -126,6 +163,55 @@ public class WorkerServiceImpl implements IWorkerService {
     public ResultBean get(int id) throws Exception {
         ResultBean resultBean = new ResultBean();
         Worker entity = mapper.selectById((long) id);
+        resultBean.setSucResult(entity);
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean login(WorkerDTO dto) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        Worker entity = mapper.selectByUsername(dto.getUsername());
+        if (entity != null) {
+            if (entity.getPassword().equals(dto.getPassword())) {
+                UserToken userToken = new UserToken();
+                userToken.setUserId(entity.getId());
+                userToken.setUserType(1);
+                userToken = userTokenMapper.selectByUserId(userToken);
+                if (userToken == null) {
+                    userToken = new UserToken();
+                    String refreshToken = UUID.randomUUID().toString();
+                    long expired = DateUtils.addNDay(30);
+                    String accessToken = MD5Util.getStringMD5(refreshToken + expired);
+                    userToken.setAccessToken(accessToken);
+                    userToken.setRefreshToken(refreshToken);
+                    userToken.setExpired(expired);
+                    userToken.setUserId(entity.getId());
+                    userToken.setUserType(UserTypeEnum.WORKER.getValue());
+                    userTokenMapper.add(userToken);
+                }
+                resultBean.setSucResult(userToken);
+            }
+        } else {
+            resultBean.setFailMsg(SystemStatus.USERNAME_PASSWORD_IS_ERROR);
+        }
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean logout(String refreshToken) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        UserToken userToken = new UserToken();
+        userToken.setRefreshToken(refreshToken);
+        userToken.setUserType(UserTypeEnum.WORKER.getValue());
+        int id = userTokenMapper.deleteByRefreshToken(userToken);
+        resultBean.setSucResult(id);
+        return resultBean;
+    }
+
+    @Override
+    public ResultBean getUserByToken(String token) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        Worker entity = mapper.selectUserByToken(token);
         resultBean.setSucResult(entity);
         return resultBean;
     }
