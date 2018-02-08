@@ -6,9 +6,9 @@ import java.util.Date;
 /**
  * Created by song on 2017/9/26.
  */
-public class QueryBean implements Serializable{
-    private Integer pageNo=1;
-    private Integer pageSize=10;
+public class QueryBean implements Serializable {
+    private Integer pageNo = 1;
+    private Integer pageSize = 10;
     private Date startTime;
     private Date endTime;
 

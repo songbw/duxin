@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 角色资源表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -80,11 +81,11 @@ public class RoleResource implements Serializable {
     @Override
     public String toString() {
         return "RoleResource{" +
-        ", id=" + id +
-        ", roleId=" + roleId +
-        ", resId=" + resId +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", roleId=" + roleId +
+                ", resId=" + resId +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

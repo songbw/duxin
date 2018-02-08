@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 客户表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -140,16 +141,16 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return "Customer{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", gender=" + gender +
-        ", birthDate=" + birthDate +
-        ", mobile=" + mobile +
-        ", telephone=" + telephone +
-        ", password=" + password +
-        ", address=" + address +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", gender=" + gender +
+                ", birthDate=" + birthDate +
+                ", mobile=" + mobile +
+                ", telephone=" + telephone +
+                ", password=" + password +
+                ", address=" + address +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

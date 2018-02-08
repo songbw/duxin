@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 车辆信息表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -104,13 +105,13 @@ public class Car implements Serializable {
     @Override
     public String toString() {
         return "Car{" +
-        ", id=" + id +
-        ", userId=" + userId +
-        ", userType=" + userType +
-        ", carNumber=" + carNumber +
-        ", remark=" + remark +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", userId=" + userId +
+                ", userType=" + userType +
+                ", carNumber=" + carNumber +
+                ", remark=" + remark +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

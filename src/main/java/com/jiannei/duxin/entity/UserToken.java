@@ -6,8 +6,9 @@ import java.math.BigDecimal;
 
 /**
  * <p>
- * 
+ * <p>
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -116,14 +117,14 @@ public class UserToken implements Serializable {
     @Override
     public String toString() {
         return "UserToken{" +
-        ", id=" + id +
-        ", userId=" + userId +
-        ", userType=" + userType +
-        ", accessToken=" + accessToken +
-        ", refreshToken=" + refreshToken +
-        ", expired=" + expired +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", userId=" + userId +
+                ", userType=" + userType +
+                ", accessToken=" + accessToken +
+                ", refreshToken=" + refreshToken +
+                ", expired=" + expired +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

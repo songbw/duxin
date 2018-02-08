@@ -15,18 +15,18 @@
     <insert id="add" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id" useGeneratedKeys="true"
             keyColumn="id">
         insert into role(
-                name                   ,
-                remark                   ,
-                created_at                   ,
-                updated_at,admin_id             ) values(
-                                 #{name}
-                 ,
-                                 #{remark}
-                 ,
-                                 now()
-                 ,
-                                 now(),#{adminId}
-            )
+        name ,
+        remark ,
+        created_at ,
+        updated_at,admin_id ) values(
+        #{name}
+        ,
+        #{remark}
+        ,
+        now()
+        ,
+        now(),#{adminId}
+        )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Role" keyProperty="id" useGeneratedKeys="true"
             keyColumn="id">

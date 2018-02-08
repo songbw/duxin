@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 产品打包列表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */

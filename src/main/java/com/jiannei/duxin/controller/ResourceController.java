@@ -127,6 +127,30 @@ public class ResourceController {
         return resultBean;
     }
 
+    /**
+     * 根据角色ID获取该角色资源列表
+     *
+     * @param roleId
+     * @return
+     */
+    @RequestMapping(value = "/role", method = RequestMethod.GET)
+    @ResponseBody
+    public ResultBean getByRole(int roleId) {
+        ResultBean resultBean = new ResultBean();
+        if (roleId == 0) {
+            resultBean.setFailMsg(SystemStatus.ID_IS_NULL);
+            return resultBean;
+        }
+        try {
+            resultBean = service.getByRole(roleId);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            resultBean.setFailMsg(SystemStatus.SERVER_ERROR);
+            return resultBean;
+        }
+        return resultBean;
+    }
+
     @RequestMapping(value = "/lock", method = RequestMethod.PUT)
     @ResponseBody
     public ResultBean updateLock(@RequestBody ResourceDTO dto) {

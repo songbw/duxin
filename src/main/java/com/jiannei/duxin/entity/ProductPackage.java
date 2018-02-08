@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 产品打包列表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -137,16 +138,16 @@ public class ProductPackage implements Serializable {
     @Override
     public String toString() {
         return "ProductPackage{" +
-        ", id=" + id +
-        ", orderId=" + orderId +
-        ", productOrder=" + productOrder +
-        ", packageNum=" + packageNum +
-        ", packageWeight=" + packageWeight +
-        ", sortUser=" + sortUser +
-        ", area=" + area +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        ", status=" + status +
-        "}";
+                ", id=" + id +
+                ", orderId=" + orderId +
+                ", productOrder=" + productOrder +
+                ", packageNum=" + packageNum +
+                ", packageWeight=" + packageWeight +
+                ", sortUser=" + sortUser +
+                ", area=" + area +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", status=" + status +
+                "}";
     }
 }

@@ -4,11 +4,11 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.RoleResource">
-        <id column="id" property="id" />
-        <result column="role_id" property="roleId" />
-        <result column="res_id" property="resId" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
+        <id column="id" property="id"/>
+        <result column="role_id" property="roleId"/>
+        <result column="res_id" property="resId"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
     </resultMap>
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.RoleResource" keyProperty="id">
@@ -28,11 +28,13 @@
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.RoleResource" keyProperty="id">
         update role_resource set
-                                            <if test="roleId != null and roleId != '' ">
-                            role_id = #{roleId} ,                        </if>
-                                            <if test="resId != null and resId != '' ">
-                            res_id = #{resId} ,                        </if>
-                                          updated_at = now()          where id = #{id}
+        <if test="roleId != null and roleId != '' ">
+            role_id = #{roleId} ,
+        </if>
+        <if test="resId != null and resId != '' ">
+            res_id = #{resId} ,
+        </if>
+        updated_at = now() where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from role_resource where id = #{id}
@@ -45,34 +47,37 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from role_resource where 1=1
-                <if test="roleId != null and roleId != '' ">
-                    AND role_id LIKE #{roleId}
-                </if>
-                <if test="resId != null and resId != '' ">
-                    AND res_id LIKE #{resId}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="roleId != null and roleId != '' ">
+            AND role_id LIKE #{roleId}
+        </if>
+        <if test="resId != null and resId != '' ">
+            AND res_id LIKE #{resId}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from role_resource where 1=1
-                <if test="roleId != null and roleId != '' ">
-                    AND role_id LIKE #{roleId}
-                </if>
-                <if test="resId != null and resId != '' ">
-                    AND res_id LIKE #{resId}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
+        <if test="roleId != null and roleId != '' ">
+            AND role_id LIKE #{roleId}
+        </if>
+        <if test="resId != null and resId != '' ">
+            AND res_id LIKE #{resId}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
+    </select>
+    <select id="selectByRole" resultMap="BaseResultMap">
+        select * from role_resource WHERE  role_id = #{roleId}
     </select>
 
 </mapper>

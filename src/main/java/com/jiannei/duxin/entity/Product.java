@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 产品信息表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -152,17 +153,17 @@ public class Product implements Serializable {
     @Override
     public String toString() {
         return "Product{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", specification=" + specification +
-        ", hardness=" + hardness +
-        ", texture=" + texture +
-        ", color=" + color +
-        ", remark=" + remark +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        ", creator=" + creator +
-        ", price=" + price +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", specification=" + specification +
+                ", hardness=" + hardness +
+                ", texture=" + texture +
+                ", color=" + color +
+                ", remark=" + remark +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", creator=" + creator +
+                ", price=" + price +
+                "}";
     }
 }

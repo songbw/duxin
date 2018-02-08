@@ -90,14 +90,14 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public ResultBean updateLocked(AdminDTO dto) throws Exception {
         ResultBean resultBean = new ResultBean();
-        Admin entity = mapper.selectById(dto.getId()) ;
+        Admin entity = mapper.selectById(dto.getId());
         if (entity == null) {
             resultBean.setFailMsg(SystemStatus.USER_NO_EXIST);
-            return resultBean ;
+            return resultBean;
         }
         if (entity.getLocked() != dto.getLocked()) {
             entity.setLocked(dto.getLocked());
-            mapper.updateLocked(entity) ;
+            mapper.updateLocked(entity);
             resultBean.setSucResult(entity.getId());
         }
         return resultBean;
@@ -106,14 +106,14 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public ResultBean updatePasswd(AdminDTO dto) throws Exception {
         ResultBean resultBean = new ResultBean();
-        Admin entity = mapper.selectById(dto.getId()) ;
+        Admin entity = mapper.selectById(dto.getId());
         if (entity == null) {
             resultBean.setFailMsg(SystemStatus.USER_NO_EXIST);
-            return resultBean ;
+            return resultBean;
         }
         if (entity.getPassword() != dto.getPassword()) {
             entity.setPassword(dto.getPassword());
-            mapper.updatePasswd(entity) ;
+            mapper.updatePasswd(entity);
             resultBean.setSucResult(entity.getId());
         }
         return resultBean;
@@ -198,24 +198,24 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public ResultBean login(AdminDTO dto) throws Exception {
         ResultBean resultBean = new ResultBean();
-        Admin entity = mapper.selectByUsername(dto.getUsername()) ;
+        Admin entity = mapper.selectByUsername(dto.getUsername());
         if (entity != null) {
             if (entity.getPassword().equals(dto.getPassword())) {
-                UserToken userToken = new UserToken() ;
+                UserToken userToken = new UserToken();
                 userToken.setUserId(entity.getId());
                 userToken.setUserType(1);
-                userToken = userTokenMapper.selectByUserId(userToken) ;
+                userToken = userTokenMapper.selectByUserId(userToken);
                 if (userToken == null) {
                     userToken = new UserToken();
-                    String refreshToken = UUID.randomUUID().toString() ;
-                    long expired = DateUtils.addNDay(30) ;
+                    String refreshToken = UUID.randomUUID().toString();
+                    long expired = DateUtils.addNDay(30);
                     String accessToken = MD5Util.getStringMD5(refreshToken + expired);
                     userToken.setAccessToken(accessToken);
                     userToken.setRefreshToken(refreshToken);
                     userToken.setExpired(expired);
                     userToken.setUserId(entity.getId());
                     userToken.setUserType(UserTypeEnum.ADMIN.getValue());
-                    userTokenMapper.add(userToken) ;
+                    userTokenMapper.add(userToken);
                 }
                 resultBean.setSucResult(userToken);
             }
@@ -231,7 +231,7 @@ public class AdminServiceImpl implements IAdminService {
         UserToken userToken = new UserToken();
         userToken.setRefreshToken(refreshToken);
         userToken.setUserType(UserTypeEnum.ADMIN.getValue());
-        int id = userTokenMapper.deleteByRefreshToken(userToken) ;
+        int id = userTokenMapper.deleteByRefreshToken(userToken);
         resultBean.setSucResult(id);
         return resultBean;
     }
@@ -239,7 +239,7 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public ResultBean getUserByToken(String token) throws Exception {
         ResultBean resultBean = new ResultBean();
-        Admin entity  = mapper.selectUserByToken(token) ;
+        Admin entity = mapper.selectUserByToken(token);
         resultBean.setSucResult(entity);
         return resultBean;
     }

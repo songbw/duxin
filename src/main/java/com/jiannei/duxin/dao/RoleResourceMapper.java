@@ -1,6 +1,7 @@
 package com.jiannei.duxin.dao;
 
 import com.jiannei.duxin.entity.RoleResource;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,19 +13,21 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface RoleResourceMapper{
+public interface RoleResourceMapper {
 
-        int add(RoleResource entity) ;
+    int add(RoleResource entity);
 
-        int update(RoleResource entity) ;
+    int update(RoleResource entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        int deleteByRoleId(Long roleId);
+    int deleteByRoleId(Long roleId);
 
-        RoleResource selectById(Long id);
+    RoleResource selectById(Long id);
 
-        List<RoleResource> selectAllByPage(Map map) ;
+    List<RoleResource> selectByRole(Long roleId);
 
-        int selectAllBySize(Map map);
+    List<RoleResource> selectAllByPage(Map map);
+
+    int selectAllBySize(Map map);
 }

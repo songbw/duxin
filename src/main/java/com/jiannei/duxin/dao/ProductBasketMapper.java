@@ -1,6 +1,7 @@
 package com.jiannei.duxin.dao;
 
 import com.jiannei.duxin.entity.ProductBasket;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,17 +13,17 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface ProductBasketMapper{
+public interface ProductBasketMapper {
 
-        int add(ProductBasket entity) ;
+    int add(ProductBasket entity);
 
-        int update(ProductBasket entity) ;
+    int update(ProductBasket entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        ProductBasket selectById(Long id);
+    ProductBasket selectById(Long id);
 
-        List<ProductBasket> selectAllByPage(Map map) ;
+    List<ProductBasket> selectAllByPage(Map map);
 
-        int selectAllBySize(Map map);
+    int selectAllBySize(Map map);
 }

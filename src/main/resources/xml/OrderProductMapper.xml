@@ -4,119 +4,136 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.OrderProduct">
-        <id column="id" property="id" />
-        <result column="order_id" property="orderId" />
-        <result column="product_order" property="productOrder" />
-        <result column="name" property="name" />
-        <result column="specification" property="specification" />
-        <result column="hardness" property="hardness" />
-        <result column="texture" property="texture" />
-        <result column="color" property="color" />
-        <result column="customer_weight" property="customerWeight" />
-        <result column="weight" property="weight" />
-        <result column="remark" property="remark" />
-        <result column="status" property="status" />
-        <result column="priority" property="priority" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
-        <result column="customer_id" property="customerId" />
-        <result column="dealer_id" property="dealerId" />
-        <result column="price" property="price" />
-        <result column="total_price" property="totalPrice" />
+        <id column="id" property="id"/>
+        <result column="order_id" property="orderId"/>
+        <result column="product_order" property="productOrder"/>
+        <result column="name" property="name"/>
+        <result column="specification" property="specification"/>
+        <result column="hardness" property="hardness"/>
+        <result column="texture" property="texture"/>
+        <result column="color" property="color"/>
+        <result column="customer_weight" property="customerWeight"/>
+        <result column="weight" property="weight"/>
+        <result column="remark" property="remark"/>
+        <result column="status" property="status"/>
+        <result column="priority" property="priority"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="customer_id" property="customerId"/>
+        <result column="dealer_id" property="dealerId"/>
+        <result column="price" property="price"/>
+        <result column="total_price" property="totalPrice"/>
     </resultMap>
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.OrderProduct" keyProperty="id">
         insert into order_product(
-                order_id                   ,
-                product_order                   ,
-                name                   ,
-                specification                   ,
-                hardness                   ,
-                texture                   ,
-                color                   ,
-                customer_weight                   ,
-                weight                   ,
-                remark                   ,
-                status                   ,
-                priority                   ,
-                created_at                   ,
-                updated_at                   ,
-                customer_id                   ,
-                dealer_id                   ,
-                price                   ,
-                total_price             ) values(
-                                 #{orderId}
-                 ,
-                                 #{productOrder}
-                 ,
-                                 #{name}
-                 ,
-                                 #{specification}
-                 ,
-                                 #{hardness}
-                 ,
-                                 #{texture}
-                 ,
-                                 #{color}
-                 ,
-                                 #{customerWeight}
-                 ,
-                                 #{weight}
-                 ,
-                                 #{remark}
-                 ,
-                                 #{status}
-                 ,
-                                 #{priority}
-                 ,
-                                 now()
-                 ,
-                                 now()
-                 ,
-                                 #{customerId}
-                 ,
-                                 #{dealerId}
-                 ,
-                                 #{price}
-                 ,
-                                 #{totalPrice}
-            )
+        order_id ,
+        product_order ,
+        name ,
+        specification ,
+        hardness ,
+        texture ,
+        color ,
+        customer_weight ,
+        weight ,
+        remark ,
+        status ,
+        priority ,
+        created_at ,
+        updated_at ,
+        customer_id ,
+        dealer_id ,
+        price ,
+        total_price ) values(
+        #{orderId}
+        ,
+        #{productOrder}
+        ,
+        #{name}
+        ,
+        #{specification}
+        ,
+        #{hardness}
+        ,
+        #{texture}
+        ,
+        #{color}
+        ,
+        #{customerWeight}
+        ,
+        #{weight}
+        ,
+        #{remark}
+        ,
+        #{status}
+        ,
+        #{priority}
+        ,
+        now()
+        ,
+        now()
+        ,
+        #{customerId}
+        ,
+        #{dealerId}
+        ,
+        #{price}
+        ,
+        #{totalPrice}
+        )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.OrderProduct" keyProperty="id">
         update order_product set
-                                            <if test="orderId != null and orderId != '' ">
-                            order_id = #{orderId} ,                        </if>
-                                            <if test="productOrder != null and productOrder != '' ">
-                            product_order = #{productOrder} ,                        </if>
-                                            <if test="name != null and name != '' ">
-                            name = #{name} ,                        </if>
-                                            <if test="specification != null and specification != '' ">
-                            specification = #{specification} ,                        </if>
-                                            <if test="hardness != null and hardness != '' ">
-                            hardness = #{hardness} ,                        </if>
-                                            <if test="texture != null and texture != '' ">
-                            texture = #{texture} ,                        </if>
-                                            <if test="color != null and color != '' ">
-                            color = #{color} ,                        </if>
-                                            <if test="customerWeight != null and customerWeight != '' ">
-                            customer_weight = #{customerWeight} ,                        </if>
-                                            <if test="weight != null and weight != '' ">
-                            weight = #{weight} ,                        </if>
-                                            <if test="remark != null and remark != '' ">
-                            remark = #{remark} ,                        </if>
-                                            <if test="status != null and status != '' ">
-                            status = #{status} ,                        </if>
-                                            <if test="priority != null and priority != '' ">
-                            priority = #{priority} ,                        </if>
-                                          updated_at = now() ,                                            <if test="customerId != null and customerId != '' ">
-                            customer_id = #{customerId} ,                        </if>
-                                            <if test="dealerId != null and dealerId != '' ">
-                            dealer_id = #{dealerId} ,                        </if>
-                                            <if test="price != null and price != '' ">
-                            price = #{price} ,                        </if>
-                                            <if test="totalPrice != null and totalPrice != '' ">
-                            total_price = #{totalPrice}                        </if>
-          where id = #{id}
+        <if test="orderId != null and orderId != '' ">
+            order_id = #{orderId} ,
+        </if>
+        <if test="productOrder != null and productOrder != '' ">
+            product_order = #{productOrder} ,
+        </if>
+        <if test="name != null and name != '' ">
+            name = #{name} ,
+        </if>
+        <if test="specification != null and specification != '' ">
+            specification = #{specification} ,
+        </if>
+        <if test="hardness != null and hardness != '' ">
+            hardness = #{hardness} ,
+        </if>
+        <if test="texture != null and texture != '' ">
+            texture = #{texture} ,
+        </if>
+        <if test="color != null and color != '' ">
+            color = #{color} ,
+        </if>
+        <if test="customerWeight != null and customerWeight != '' ">
+            customer_weight = #{customerWeight} ,
+        </if>
+        <if test="weight != null and weight != '' ">
+            weight = #{weight} ,
+        </if>
+        <if test="remark != null and remark != '' ">
+            remark = #{remark} ,
+        </if>
+        <if test="status != null and status != '' ">
+            status = #{status} ,
+        </if>
+        <if test="priority != null and priority != '' ">
+            priority = #{priority} ,
+        </if>
+        updated_at = now() ,
+        <if test="customerId != null and customerId != '' ">
+            customer_id = #{customerId} ,
+        </if>
+        <if test="dealerId != null and dealerId != '' ">
+            dealer_id = #{dealerId} ,
+        </if>
+        <if test="price != null and price != '' ">
+            price = #{price} ,
+        </if>
+        <if test="totalPrice != null and totalPrice != '' ">
+            total_price = #{totalPrice}
+        </if>
+        where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from order_product where id = #{id}
@@ -126,118 +143,118 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from order_product where 1=1
-                <if test="orderId != null and orderId != '' ">
-                    AND order_id LIKE #{orderId}
-                </if>
-                <if test="productOrder != null and productOrder != '' ">
-                    AND product_order LIKE #{productOrder}
-                </if>
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="specification != null and specification != '' ">
-                    AND specification LIKE #{specification}
-                </if>
-                <if test="hardness != null and hardness != '' ">
-                    AND hardness LIKE #{hardness}
-                </if>
-                <if test="texture != null and texture != '' ">
-                    AND texture LIKE #{texture}
-                </if>
-                <if test="color != null and color != '' ">
-                    AND color LIKE #{color}
-                </if>
-                <if test="customerWeight != null and customerWeight != '' ">
-                    AND customer_weight LIKE #{customerWeight}
-                </if>
-                <if test="weight != null and weight != '' ">
-                    AND weight LIKE #{weight}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="status != null and status != '' ">
-                    AND status LIKE #{status}
-                </if>
-                <if test="priority != null and priority != '' ">
-                    AND priority LIKE #{priority}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
-                <if test="customerId != null and customerId != '' ">
-                    AND customer_id LIKE #{customerId}
-                </if>
-                <if test="dealerId != null and dealerId != '' ">
-                    AND dealer_id LIKE #{dealerId}
-                </if>
-                <if test="price != null and price != '' ">
-                    AND price LIKE #{price}
-                </if>
-                <if test="totalPrice != null and totalPrice != '' ">
-                    AND total_price LIKE #{totalPrice}
-                </if>
+        <if test="orderId != null and orderId != '' ">
+            AND order_id LIKE #{orderId}
+        </if>
+        <if test="productOrder != null and productOrder != '' ">
+            AND product_order LIKE #{productOrder}
+        </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="specification != null and specification != '' ">
+            AND specification LIKE #{specification}
+        </if>
+        <if test="hardness != null and hardness != '' ">
+            AND hardness LIKE #{hardness}
+        </if>
+        <if test="texture != null and texture != '' ">
+            AND texture LIKE #{texture}
+        </if>
+        <if test="color != null and color != '' ">
+            AND color LIKE #{color}
+        </if>
+        <if test="customerWeight != null and customerWeight != '' ">
+            AND customer_weight LIKE #{customerWeight}
+        </if>
+        <if test="weight != null and weight != '' ">
+            AND weight LIKE #{weight}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="status != null and status != '' ">
+            AND status LIKE #{status}
+        </if>
+        <if test="priority != null and priority != '' ">
+            AND priority LIKE #{priority}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
+        <if test="customerId != null and customerId != '' ">
+            AND customer_id LIKE #{customerId}
+        </if>
+        <if test="dealerId != null and dealerId != '' ">
+            AND dealer_id LIKE #{dealerId}
+        </if>
+        <if test="price != null and price != '' ">
+            AND price LIKE #{price}
+        </if>
+        <if test="totalPrice != null and totalPrice != '' ">
+            AND total_price LIKE #{totalPrice}
+        </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from order_product where 1=1
-                <if test="orderId != null and orderId != '' ">
-                    AND order_id LIKE #{orderId}
-                </if>
-                <if test="productOrder != null and productOrder != '' ">
-                    AND product_order LIKE #{productOrder}
-                </if>
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="specification != null and specification != '' ">
-                    AND specification LIKE #{specification}
-                </if>
-                <if test="hardness != null and hardness != '' ">
-                    AND hardness LIKE #{hardness}
-                </if>
-                <if test="texture != null and texture != '' ">
-                    AND texture LIKE #{texture}
-                </if>
-                <if test="color != null and color != '' ">
-                    AND color LIKE #{color}
-                </if>
-                <if test="customerWeight != null and customerWeight != '' ">
-                    AND customer_weight LIKE #{customerWeight}
-                </if>
-                <if test="weight != null and weight != '' ">
-                    AND weight LIKE #{weight}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="status != null and status != '' ">
-                    AND status LIKE #{status}
-                </if>
-                <if test="priority != null and priority != '' ">
-                    AND priority LIKE #{priority}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
-                <if test="customerId != null and customerId != '' ">
-                    AND customer_id LIKE #{customerId}
-                </if>
-                <if test="dealerId != null and dealerId != '' ">
-                    AND dealer_id LIKE #{dealerId}
-                </if>
-                <if test="price != null and price != '' ">
-                    AND price LIKE #{price}
-                </if>
-                <if test="totalPrice != null and totalPrice != '' ">
-                    AND total_price LIKE #{totalPrice}
-                </if>
+        <if test="orderId != null and orderId != '' ">
+            AND order_id LIKE #{orderId}
+        </if>
+        <if test="productOrder != null and productOrder != '' ">
+            AND product_order LIKE #{productOrder}
+        </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="specification != null and specification != '' ">
+            AND specification LIKE #{specification}
+        </if>
+        <if test="hardness != null and hardness != '' ">
+            AND hardness LIKE #{hardness}
+        </if>
+        <if test="texture != null and texture != '' ">
+            AND texture LIKE #{texture}
+        </if>
+        <if test="color != null and color != '' ">
+            AND color LIKE #{color}
+        </if>
+        <if test="customerWeight != null and customerWeight != '' ">
+            AND customer_weight LIKE #{customerWeight}
+        </if>
+        <if test="weight != null and weight != '' ">
+            AND weight LIKE #{weight}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="status != null and status != '' ">
+            AND status LIKE #{status}
+        </if>
+        <if test="priority != null and priority != '' ">
+            AND priority LIKE #{priority}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
+        <if test="customerId != null and customerId != '' ">
+            AND customer_id LIKE #{customerId}
+        </if>
+        <if test="dealerId != null and dealerId != '' ">
+            AND dealer_id LIKE #{dealerId}
+        </if>
+        <if test="price != null and price != '' ">
+            AND price LIKE #{price}
+        </if>
+        <if test="totalPrice != null and totalPrice != '' ">
+            AND total_price LIKE #{totalPrice}
+        </if>
     </select>
 
 </mapper>

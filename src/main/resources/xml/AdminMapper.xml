@@ -21,39 +21,39 @@
     <insert id="add" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id" useGeneratedKeys="true"
             keyColumn="id">
         insert into admin(
-                name                   ,
-                username                   ,
-                password                   ,
-                mobile                   ,
-                email                   ,
-                role_id                   ,
-                parent_id                   ,
-                parent_ids                   ,
-                locked                   ,
-                created_at                   ,
-                updated_at             ) values(
-                                 #{name}
-                 ,
-                                 #{username}
-                 ,
-                                 #{password}
-                 ,
-                                 #{mobile}
-                 ,
-                                 #{email}
-                 ,
-                                 #{roleId}
-                 ,
-                                 #{parentId}
-                 ,
-                                 #{parentIds}
-                 ,
-                                 #{locked}
-                 ,
-                                 now()
-                 ,
-                                 now()
-            )
+        name ,
+        username ,
+        password ,
+        mobile ,
+        email ,
+        role_id ,
+        parent_id ,
+        parent_ids ,
+        locked ,
+        created_at ,
+        updated_at ) values(
+        #{name}
+        ,
+        #{username}
+        ,
+        #{password}
+        ,
+        #{mobile}
+        ,
+        #{email}
+        ,
+        #{roleId}
+        ,
+        #{parentId}
+        ,
+        #{parentIds}
+        ,
+        #{locked}
+        ,
+        now()
+        ,
+        now()
+        )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id" useGeneratedKeys="true"
             keyColumn="id">
@@ -65,7 +65,7 @@
             username = #{username} ,
         </if>
         <!--<if test="password != null and password != '' ">-->
-            <!--password = #{password} ,-->
+        <!--password = #{password} ,-->
         <!--</if>-->
         <if test="mobile != null and mobile != '' ">
             mobile = #{mobile} ,
@@ -83,15 +83,15 @@
             parent_ids = #{parentIds} ,
         </if>
         <!--<if test="locked != null and locked != '' ">-->
-            <!--locked = #{locked} ,-->
+        <!--locked = #{locked} ,-->
         <!--</if>-->
         updated_at = now() where id = #{id}
     </update>
-    <update id="updateLocked"  parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id" useGeneratedKeys="true"
+    <update id="updateLocked" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id" useGeneratedKeys="true"
             keyColumn="id">
         update admin set locked = #{locked} ,updated_at = now() where id = #{id}
     </update>
-    <update id="updatePasswd"  parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id" useGeneratedKeys="true"
+    <update id="updatePasswd" parameterType="com.jiannei.duxin.entity.Admin" keyProperty="id" useGeneratedKeys="true"
             keyColumn="id">
         update admin set password = #{password} ,updated_at = now() where id = #{id}
     </update>

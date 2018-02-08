@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 管理员表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -164,18 +165,18 @@ public class Admin implements Serializable {
     @Override
     public String toString() {
         return "Admin{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", username=" + username +
-        ", password=" + password +
-        ", mobile=" + mobile +
-        ", email=" + email +
-        ", roleId=" + roleId +
-        ", parentId=" + parentId +
-        ", parentIds=" + parentIds +
-        ", locked=" + locked +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", username=" + username +
+                ", password=" + password +
+                ", mobile=" + mobile +
+                ", email=" + email +
+                ", roleId=" + roleId +
+                ", parentId=" + parentId +
+                ", parentIds=" + parentIds +
+                ", locked=" + locked +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

@@ -1,6 +1,7 @@
 package com.jiannei.duxin.dao;
 
 import com.jiannei.duxin.entity.Worker;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,17 +13,17 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface WorkerMapper{
+public interface WorkerMapper {
 
-        int add(Worker entity) ;
+    int add(Worker entity);
 
-        int update(Worker entity) ;
+    int update(Worker entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        Worker selectById(Long id);
+    Worker selectById(Long id);
 
-        List<Worker> selectAllByPage(Map map) ;
+    List<Worker> selectAllByPage(Map map);
 
-        int selectAllBySize(Map map);
+    int selectAllBySize(Map map);
 }

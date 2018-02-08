@@ -1,6 +1,7 @@
 package com.jiannei.duxin.dao;
 
 import com.jiannei.duxin.entity.OrderProduct;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,17 +13,17 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface OrderProductMapper{
+public interface OrderProductMapper {
 
-        int add(OrderProduct entity) ;
+    int add(OrderProduct entity);
 
-        int update(OrderProduct entity) ;
+    int update(OrderProduct entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        OrderProduct selectById(Long id);
+    OrderProduct selectById(Long id);
 
-        List<OrderProduct> selectAllByPage(Map map) ;
+    List<OrderProduct> selectAllByPage(Map map);
 
-        int selectAllBySize(Map map);
+    int selectAllBySize(Map map);
 }

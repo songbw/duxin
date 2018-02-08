@@ -4,71 +4,80 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jiannei.duxin.entity.Product">
-        <id column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="specification" property="specification" />
-        <result column="hardness" property="hardness" />
-        <result column="texture" property="texture" />
-        <result column="color" property="color" />
-        <result column="remark" property="remark" />
-        <result column="created_at" property="createdAt" />
-        <result column="updated_at" property="updatedAt" />
-        <result column="creator" property="creator" />
-        <result column="price" property="price" />
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="specification" property="specification"/>
+        <result column="hardness" property="hardness"/>
+        <result column="texture" property="texture"/>
+        <result column="color" property="color"/>
+        <result column="remark" property="remark"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="creator" property="creator"/>
+        <result column="price" property="price"/>
     </resultMap>
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.Product" keyProperty="id">
         insert into product(
-                name                   ,
-                specification                   ,
-                hardness                   ,
-                texture                   ,
-                color                   ,
-                remark                   ,
-                created_at                   ,
-                updated_at                   ,
-                creator                   ,
-                price             ) values(
-                                 #{name}
-                 ,
-                                 #{specification}
-                 ,
-                                 #{hardness}
-                 ,
-                                 #{texture}
-                 ,
-                                 #{color}
-                 ,
-                                 #{remark}
-                 ,
-                                 now()
-                 ,
-                                 now()
-                 ,
-                                 #{creator}
-                 ,
-                                 #{price}
-            )
+        name ,
+        specification ,
+        hardness ,
+        texture ,
+        color ,
+        remark ,
+        created_at ,
+        updated_at ,
+        creator ,
+        price ) values(
+        #{name}
+        ,
+        #{specification}
+        ,
+        #{hardness}
+        ,
+        #{texture}
+        ,
+        #{color}
+        ,
+        #{remark}
+        ,
+        now()
+        ,
+        now()
+        ,
+        #{creator}
+        ,
+        #{price}
+        )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Product" keyProperty="id">
         update product set
-                                            <if test="name != null and name != '' ">
-                            name = #{name} ,                        </if>
-                                            <if test="specification != null and specification != '' ">
-                            specification = #{specification} ,                        </if>
-                                            <if test="hardness != null and hardness != '' ">
-                            hardness = #{hardness} ,                        </if>
-                                            <if test="texture != null and texture != '' ">
-                            texture = #{texture} ,                        </if>
-                                            <if test="color != null and color != '' ">
-                            color = #{color} ,                        </if>
-                                            <if test="remark != null and remark != '' ">
-                            remark = #{remark} ,                        </if>
-                                          updated_at = now() ,                                            <if test="creator != null and creator != '' ">
-                            creator = #{creator} ,                        </if>
-                                            <if test="price != null and price != '' ">
-                            price = #{price}                        </if>
-          where id = #{id}
+        <if test="name != null and name != '' ">
+            name = #{name} ,
+        </if>
+        <if test="specification != null and specification != '' ">
+            specification = #{specification} ,
+        </if>
+        <if test="hardness != null and hardness != '' ">
+            hardness = #{hardness} ,
+        </if>
+        <if test="texture != null and texture != '' ">
+            texture = #{texture} ,
+        </if>
+        <if test="color != null and color != '' ">
+            color = #{color} ,
+        </if>
+        <if test="remark != null and remark != '' ">
+            remark = #{remark} ,
+        </if>
+        updated_at = now() ,
+        <if test="creator != null and creator != '' ">
+            creator = #{creator} ,
+        </if>
+        <if test="price != null and price != '' ">
+            price = #{price}
+        </if>
+        where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
         delete from product where id = #{id}
@@ -78,70 +87,70 @@
     </select>
     <select id="selectAllByPage" resultMap="BaseResultMap" parameterType="hashmap">
         select * from product where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="specification != null and specification != '' ">
-                    AND specification LIKE #{specification}
-                </if>
-                <if test="hardness != null and hardness != '' ">
-                    AND hardness LIKE #{hardness}
-                </if>
-                <if test="texture != null and texture != '' ">
-                    AND texture LIKE #{texture}
-                </if>
-                <if test="color != null and color != '' ">
-                    AND color LIKE #{color}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
-                <if test="creator != null and creator != '' ">
-                    AND creator LIKE #{creator}
-                </if>
-                <if test="price != null and price != '' ">
-                    AND price LIKE #{price}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="specification != null and specification != '' ">
+            AND specification LIKE #{specification}
+        </if>
+        <if test="hardness != null and hardness != '' ">
+            AND hardness LIKE #{hardness}
+        </if>
+        <if test="texture != null and texture != '' ">
+            AND texture LIKE #{texture}
+        </if>
+        <if test="color != null and color != '' ">
+            AND color LIKE #{color}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
+        <if test="creator != null and creator != '' ">
+            AND creator LIKE #{creator}
+        </if>
+        <if test="price != null and price != '' ">
+            AND price LIKE #{price}
+        </if>
         limit #{pageNo}, #{pageSize}
     </select>
     <select id="selectAllBySize" resultType="java.lang.Integer" parameterType="hashmap">
         select count(id) from product where 1=1
-                <if test="name != null and name != '' ">
-                    AND name LIKE #{name}
-                </if>
-                <if test="specification != null and specification != '' ">
-                    AND specification LIKE #{specification}
-                </if>
-                <if test="hardness != null and hardness != '' ">
-                    AND hardness LIKE #{hardness}
-                </if>
-                <if test="texture != null and texture != '' ">
-                    AND texture LIKE #{texture}
-                </if>
-                <if test="color != null and color != '' ">
-                    AND color LIKE #{color}
-                </if>
-                <if test="remark != null and remark != '' ">
-                    AND remark LIKE #{remark}
-                </if>
-                <if test="createdAt != null and createdAt != '' ">
-                    AND created_at LIKE #{createdAt}
-                </if>
-                <if test="updatedAt != null and updatedAt != '' ">
-                    AND updated_at LIKE #{updatedAt}
-                </if>
-                <if test="creator != null and creator != '' ">
-                    AND creator LIKE #{creator}
-                </if>
-                <if test="price != null and price != '' ">
-                    AND price LIKE #{price}
-                </if>
+        <if test="name != null and name != '' ">
+            AND name LIKE #{name}
+        </if>
+        <if test="specification != null and specification != '' ">
+            AND specification LIKE #{specification}
+        </if>
+        <if test="hardness != null and hardness != '' ">
+            AND hardness LIKE #{hardness}
+        </if>
+        <if test="texture != null and texture != '' ">
+            AND texture LIKE #{texture}
+        </if>
+        <if test="color != null and color != '' ">
+            AND color LIKE #{color}
+        </if>
+        <if test="remark != null and remark != '' ">
+            AND remark LIKE #{remark}
+        </if>
+        <if test="createdAt != null and createdAt != '' ">
+            AND created_at LIKE #{createdAt}
+        </if>
+        <if test="updatedAt != null and updatedAt != '' ">
+            AND updated_at LIKE #{updatedAt}
+        </if>
+        <if test="creator != null and creator != '' ">
+            AND creator LIKE #{creator}
+        </if>
+        <if test="price != null and price != '' ">
+            AND price LIKE #{price}
+        </if>
     </select>
 
 </mapper>

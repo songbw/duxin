@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 管理员表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -55,12 +56,12 @@ public class AdminDTO implements Serializable {
      * 父ID
      */
 
-    private Long parentId=0l;
+    private Long parentId = 0l;
     /**
      * 父关联ID
      */
 
-    private String parentIds="0,";
+    private String parentIds = "0,";
     /**
      * 冻结/激活（0：激活，1：冻结）
      */

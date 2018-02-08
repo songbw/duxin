@@ -1,6 +1,7 @@
 package com.jiannei.duxin.dao;
 
 import com.jiannei.duxin.entity.Resource;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,21 +13,23 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface ResourceMapper{
+public interface ResourceMapper {
 
-        int add(Resource entity) ;
+    int add(Resource entity);
 
-        int update(Resource entity) ;
+    int update(Resource entity);
 
-        int updateAvailable(Resource entity) ;
+    int updateAvailable(Resource entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        Resource selectById(Long id);
+    Resource selectById(Long id);
 
-        Resource selectByName(String name);
+    Resource selectByName(String name);
 
-        List<Resource> selectAllByPage(Map map) ;
+    List<Resource> selectAllByPage(Map map);
 
-        int selectAllBySize(Map map);
+    int selectAllBySize(Map map);
+
+    List<Resource> selectByRoleId(Long roleId);
 }

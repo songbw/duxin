@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * <p>
  * 工人表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -176,19 +177,19 @@ public class Worker implements Serializable {
     @Override
     public String toString() {
         return "Worker{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", username=" + username +
-        ", password=" + password +
-        ", gender=" + gender +
-        ", birthDate=" + birthDate +
-        ", mobile=" + mobile +
-        ", nativePlace=" + nativePlace +
-        ", dealerId=" + dealerId +
-        ", workType=" + workType +
-        ", locked=" + locked +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", username=" + username +
+                ", password=" + password +
+                ", gender=" + gender +
+                ", birthDate=" + birthDate +
+                ", mobile=" + mobile +
+                ", nativePlace=" + nativePlace +
+                ", dealerId=" + dealerId +
+                ", workType=" + workType +
+                ", locked=" + locked +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

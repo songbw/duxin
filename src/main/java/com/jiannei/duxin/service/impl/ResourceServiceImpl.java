@@ -169,4 +169,12 @@ public class ResourceServiceImpl implements IResourceService {
         resultBean.setSucResult(entity);
         return resultBean;
     }
+
+    @Override
+    public ResultBean getByRole(int roleId) throws Exception {
+        ResultBean resultBean = new ResultBean();
+        List<Resource> entity = mapper.selectByRoleId((long) roleId);
+        resultBean.setSucResult(entity);
+        return resultBean;
+    }
 }

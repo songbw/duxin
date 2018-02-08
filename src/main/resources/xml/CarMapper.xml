@@ -15,24 +15,24 @@
 
     <insert id="add" parameterType="com.jiannei.duxin.entity.Car" keyProperty="id">
         insert into car(
-                user_id                   ,
-                user_type                   ,
-                car_number                   ,
-                remark                   ,
-                created_at                   ,
-                updated_at             ) values(
-                                 #{userId}
-                 ,
-                                 #{userType}
-                 ,
-                                 #{carNumber}
-                 ,
-                                 #{remark}
-                 ,
-                                 now()
-                 ,
-                                 now()
-            )
+        user_id ,
+        user_type ,
+        car_number ,
+        remark ,
+        created_at ,
+        updated_at ) values(
+        #{userId}
+        ,
+        #{userType}
+        ,
+        #{carNumber}
+        ,
+        #{remark}
+        ,
+        now()
+        ,
+        now()
+        )
     </insert>
     <update id="update" parameterType="com.jiannei.duxin.entity.Car" keyProperty="id">
         update car set

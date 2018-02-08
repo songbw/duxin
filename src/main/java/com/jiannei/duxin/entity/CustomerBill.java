@@ -6,8 +6,9 @@ import java.math.BigDecimal;
 
 /**
  * <p>
- * 
+ * <p>
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */
@@ -164,18 +165,18 @@ public class CustomerBill implements Serializable {
     @Override
     public String toString() {
         return "CustomerBill{" +
-        ", id=" + id +
-        ", dealerId=" + dealerId +
-        ", customerId=" + customerId +
-        ", customerName=" + customerName +
-        ", customerPhone=" + customerPhone +
-        ", orderId=" + orderId +
-        ", totalPrice=" + totalPrice +
-        ", actualPrice=" + actualPrice +
-        ", paid=" + paid +
-        ", remark=" + remark +
-        ", createdAt=" + createdAt +
-        ", updatedAt=" + updatedAt +
-        "}";
+                ", id=" + id +
+                ", dealerId=" + dealerId +
+                ", customerId=" + customerId +
+                ", customerName=" + customerName +
+                ", customerPhone=" + customerPhone +
+                ", orderId=" + orderId +
+                ", totalPrice=" + totalPrice +
+                ", actualPrice=" + actualPrice +
+                ", paid=" + paid +
+                ", remark=" + remark +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                "}";
     }
 }

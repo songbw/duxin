@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 
-public class ResultBean implements Serializable{
+public class ResultBean implements Serializable {
 
 
     public String requestId = UUID.randomUUID().toString().replace("-", "");

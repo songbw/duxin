@@ -6,21 +6,22 @@ import com.jiannei.duxin.dto.CustomerBillDTO;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-26
  */
 public interface ICustomerBillService {
 
-        ResultBean insert(CustomerBillDTO dto) throws Exception;
+    ResultBean insert(CustomerBillDTO dto) throws Exception;
 
-        ResultBean update(CustomerBillDTO dto) throws Exception;
+    ResultBean update(CustomerBillDTO dto) throws Exception;
 
-        ResultBean delete(int id) throws Exception;
+    ResultBean delete(int id) throws Exception;
 
-        ResultBean listByPage(CustomerBillQueryBean queryBean) throws Exception;
+    ResultBean listByPage(CustomerBillQueryBean queryBean) throws Exception;
 
-        ResultBean get(int id) throws Exception;
+    ResultBean get(int id) throws Exception;
 
 }

@@ -4,11 +4,11 @@ import java.util.Date;
 import java.math.BigDecimal;
 
 
-
 /**
  * <p>
  * 货单产品表
  * </p>
+ *
  * @author Songbw
  * @since 2018-01-30
  */

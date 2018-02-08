@@ -160,5 +160,8 @@
     <select id="selectByName" resultMap="BaseResultMap">
         select * from resource where name = #{name}
     </select>
+    <select id="selectByRoleId" resultMap="BaseResultMap">
+        select r.* from resource r RIGHT JOIN role_resource rr ON rr.res_id = r.id WHERE rr.role_id = #{roleId};
+    </select>
 
 </mapper>

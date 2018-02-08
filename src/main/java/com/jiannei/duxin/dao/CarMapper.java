@@ -1,6 +1,7 @@
 package com.jiannei.duxin.dao;
 
 import com.jiannei.duxin.entity.Car;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,17 +13,17 @@ import java.util.Map;
  * @author Songbw
  * @since 2018-01-26
  */
-public interface CarMapper{
+public interface CarMapper {
 
-        int add(Car entity) ;
+    int add(Car entity);
 
-        int update(Car entity) ;
+    int update(Car entity);
 
-        int delete(int id);
+    int delete(int id);
 
-        Car selectById(Long id);
+    Car selectById(Long id);
 
-        List<Car> selectAllByPage(Map map) ;
+    List<Car> selectAllByPage(Map map);
 
-        int selectAllBySize(Map map);
+    int selectAllBySize(Map map);
 }

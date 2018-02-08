@@ -24,6 +24,7 @@ public enum SystemStatus {
     NAME_NO_EXIST(50013, "命名不存在"),
     RESOURCE_NO_EXIST(50014, "资源不存在"),
     NAME_IS_NULL(50015, "命名不能为空"),
+    ROLEID_IS_NULL(50016, "角色ID不能为空"),
     UUIMS_ERROR(60001, "请求认证服务器出错"),
     ID_NOT_FOUND(400001, "请求参数不匹配"),
     TOKEN_TIME_OUT(600002, "登录过期,请重新登录"),
